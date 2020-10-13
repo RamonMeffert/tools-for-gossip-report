@@ -1,0 +1,13 @@
+% Provides some easy shortcuts for gossip protocol notation, based on van Ditmarsch (2018)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gossip}[Gossip Protocol Notation]
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+% Calls and call sequences
+\newcommand{\conc}{\mathbin{;}}
+\newcommand{\length}[1]{\left\lvert #1 \right\rvert}
+
+% Protocols and protocol conditions
+\renewcommand{\P}[1]{\mathsf{#1}} % renew because p is the paragraph symbol
