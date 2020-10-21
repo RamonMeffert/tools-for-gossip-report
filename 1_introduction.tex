@@ -18,6 +18,12 @@ Another problem is that it often cannot be guaranteed that all agents can contac
 This has led to the sub-fields of \textit{distributed gossip}, addressing the first issue, and \textit{dynamic gossip}, addressing the second.
 The combination of these fields, where there is no overseer and not all agents can contact all other agents, is called \textit{distributed dynamic gossip}.
 
+% explain protocols here
+
+This paper will describe a tool that has been developed to aid research in distributed dynamic gossip.
+% why? van ditmarsch (2018) states "We do not know approaches that combine dynamic gossip and distributed gossip for 
+% protocols other than making random calls (i.e., protocol ANY)." so new protocol development might be a reason
+It is able to visualise the connections between agents, allows exploring the execution tree of different (semi-arbitrary) protocols and validate call sequences given a graph and/or a protocol\footnote{TODO: check how possibility/permissibility depends on protocol}
 
 
 % - gossip protocols
@@ -28,7 +34,3 @@ The combination of these fields, where there is no overseer and not all agents c
 %   - visualise protocol execution
 %   - exploration of new protocols
 
-
-\subsection{Notation}
-
-This notation used in this paper is based off of the notation used in \Textcite{van_ditmarsch_dynamic_2018}
