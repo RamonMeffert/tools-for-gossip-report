@@ -2,6 +2,8 @@
 \usepackage{bachelorproject}
 \usepackage{gossip}
 
+\addbibresource{literature.bib}
+
 \title{Tools for Gossip}
 
 \author{R.A. Meffert, s2702207, r.a.meffert@student.rug.nl}
@@ -11,23 +13,23 @@
 \begin{document}
 
 \twocolumn[
-  \maketitle
-  \begin{@twocolumnfalse}
-    \input{0_abstract.tex}
-  \end{@twocolumnfalse}
+ \maketitle
+ \begin{@twocolumnfalse}
+  \input{0_abstract.tex}
+ \end{@twocolumnfalse}
 ]
 
 \thispagestyle{firststyle}
 
-\input{1_section.tex}
+\input{1_introduction.tex}
+\input{2_method.tex}
 
-\bibliographystyle{plainnat}
-\bibliography{literature}
+\printbibliography
 
 \clearpage
 
 \begin{appendices}
-  \input{A_appendix.tex}
+ \input{A_appendix.tex}
 \end{appendices}
 
 \end{document}
