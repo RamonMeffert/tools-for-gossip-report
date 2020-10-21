@@ -1,19 +1,24 @@
 
+
 NAME=report
 all: $(NAME).pdf
 
-SECTIONS := $(shell echo ./*.tex)
+# You want latexmk to *always* run, because make does not have all the info.
+# Also, include non-file targets in .PHONY so they are run regardless of any
+# file of the given name existing.
+.PHONY: $(NAME).pdf all clean
 
-MYTEX = pdflatex
+# MAIN LATEXMK RULE
 
-MYTEXARGS = -interaction=nonstopmode -synctex=1
+# -pdf tells latexmk to generate PDF directly (instead of DVI).
+# -pdflatex="" tells latexmk to call a specific backend with specific options.
+# -use-make tells latexmk to call make for generating missing files.
 
-$(NAME).pdf: $(NAME).tex literature.bib $(SECTIONS) bachelorproject.sty
-	$(MYTEX) $(MYTEXARGS) $(NAME)
-	bibtex $(NAME).aux
-	$(MYTEX) $(MYTEXARGS) $(NAME)
-	$(MYTEX) $(MYTEXARGS) $(NAME)
-	$(MYTEX) $(MYTEXARGS) $(NAME)
+# -interaction=nonstopmode keeps the pdflatex backend from stopping at a
+# missing file reference and interactively asking you for an alternative.
+
+$(NAME).pdf: $(NAME).tex
+	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $(NAME).tex
 
 clean:
-	rm -f *.aux *.log *.out *.snm *.toc *.vrb *.nav *.synctex.gz *.blg *.bbl *.fdb_latexmk *.fls *.ind *.idx *.ilg *.bcf *.run.xml
+	latexmk -CA
