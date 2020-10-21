@@ -1,3 +1,6 @@
+# Visual studio code aux files
+.vscode/
+
 # macOS items (github template)
 
 # General
@@ -305,3 +308,6 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# misc
+__latexindent_temp.tex
