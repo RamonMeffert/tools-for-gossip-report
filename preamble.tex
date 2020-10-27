@@ -1,0 +1,21 @@
+% !TEX root = report.tex
+
+\usepackage{bachelorproject}
+\usepackage{gossip}
+\usepackage{amsthm}
+\usepackage{listings, lstautogobble}
+\usepackage[sb]{plex-mono}
+\usepackage{caption}
+
+\lstset{%
+    language=haskell, % close enough to elm to get some decent highlighting
+    basicstyle=\ttfamily\small,
+    autogobble=true
+}
+
+\DeclareCaptionFormat{listing}{#1#2#3}
+\captionsetup[lstlisting]{format=listing, singlelinecheck=false, margin=0pt, skip=8pt}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{subdefinition}{Definition}[definition]

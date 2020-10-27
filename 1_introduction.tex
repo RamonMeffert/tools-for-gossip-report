@@ -8,9 +8,10 @@ A lot of research has been done in this field,
 starting with research on the spread of infectious diseases \parencite{kermack_contribution_1927}.
 
 The definition of the gossip problem generally used nowadays was first introduced in \citeyear{hajnal_cure_1972} by \citeauthor{hajnal_cure_1972}.\footnote{TODO: Tijdeman (1971) might have been earlier, but I have not been able to find a pdf of that paper. It is referenced in \Textcite{van_ditmarsch_dynamic_2018} though.}
-In short, agents are represented as nodes in a graph, with the edges representing a ``call''---%
-that is, one agent transferring all of their secrets to another agent.
-When all agents can contact all other agents, \citeauthor{hajnal_cure_1972} proved that this can be done in \(2n-4\) calls, where \(n\) is the number of agents.
+In short, agents are represented as nodes in a graph, with the edges representing a relation.
+This relation can be either the number relation \(N\), representing that one agent has the ``phone number'' of another agent,
+and the secret relation \(S\), representing that one agent knows the secret of another agent.
+\Citeauthor{hajnal_cure_1972} proved that this can be done in \(2n-4\) calls, where \(n\) is the number of agents, if all agents know the numbers of all other agents---that is, the number relation \(N\) is \textit{complete}.
 
 The problem as formulated above requires the oversight of a central authority in order to know whether all agents know all secrets.
 However, there are many applications where this is not feasible or desirable\footnote{TODO: maybe find a citation for this? Or just explain it better}.
@@ -117,18 +118,18 @@ This has several advantages:
 
 Another advantage of using a functional language is that much of the notation introduced in section~\ref{sec:notation} can be translated fairly directly.
 For example, to evaluate protocol conditions, the last call in a call sequence needs to be checked.
-Where in mathematical notation this is represented as \(\sigma_x = \tau \conc xy\) (``the last call in the sequence of calls containing \(x\) was a call made by \(x\) to another agent''), this can be represented in Elm as follows:
+Where in mathematical notation this is represented as \(\sigma_x = \tau \conc xy\) (``the last call in the sequence of calls containing \(x\) was a call made by \(x\) to another agent \(y\)''), this can be represented in Elm as follows:
 
 % TODO: make this a listing so I can refer to it
-\begin{verbatim}
-lastFrom = 
+\begin{lstlisting}[caption={\(\sigma_x = \tau \conc xy\) in Elm}, label=lst:elm-ex-1]
+lastFrom x sigma_x = 
     case reverse sigma_x of
         [] ->
             False
         
         (from, to) :: tau ->
             from == x
-\end{verbatim}
+\end{lstlisting}
 
 This states that if \(\sigma_x = \epsilon\), the condition is false. 
 Otherwise, it checks to see if the last call was made by x, and returns true if that is the case.
