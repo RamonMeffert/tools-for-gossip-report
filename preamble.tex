@@ -4,14 +4,29 @@
 \usepackage{gossip}
 \usepackage{amsthm}
 \usepackage{listings, lstautogobble}
-\usepackage[sb]{plex-mono}
+\usepackage[scale=0.85]{plex-mono}
 \usepackage[T1]{fontenc}
 \usepackage{caption}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage[inline]{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{footnote}
+% set stamp=false to disable 'draft' watermark
+\usepackage[stamp=true,scale=5,colorspec=0.95,angle=55]{draftwatermark}
+
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
 
 \lstset{%
     language=haskell, % close enough to elm to get some decent highlighting
-    basicstyle=\ttfamily\small,
-    autogobble=true
+    basicstyle=\ttfamily\normalsize,
+    autogobble=true,
+    stepnumber=5,    
+    firstnumber=1,
+    numberfirstline=true,
+    numbers=left
 }
 
 \DeclareCaptionFormat{listing}{#1#2#3}
@@ -20,3 +35,9 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{subdefinition}{Definition}[definition]
+
+\newcommand{\addcite}{\textcolor{red}{(Citation Needed) }}
+\newcommand{\tpos}[1]{\textcolor{Green}{#1}}
+\newcommand{\tmay}[1]{\textcolor{YellowOrange}{#1}}
+\newcommand{\tneg}[1]{\textcolor{Red}{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}

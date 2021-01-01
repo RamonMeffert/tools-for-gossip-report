@@ -1,0 +1,61 @@
+% !TEX root = report.tex
+
+\section{Discussion}
+
+\subsection{Further research}
+
+At the time of publication of this report, several planned features -- some planned some time ago, some arising from the results of the survey -- have not been implemented yet.
+These features \textcolor{red}{are being worked on, but are included for completeness in this version of the paper in case any of them end up not being completed by the time this report is submitted.}
+
+\begin{itemize}
+    \item The custom protocol creation (Section~\ref{sec:custom-protocols}) is not finished yet, and still lives in a separate git repository;
+    \item It is not possible to create execution trees yet, though a linear call history is generated after executing calls;
+    \item Clicking calls (Section~\ref{sec:call-execution}) does not execute them yet;
+    \item The rendered graph sometimes jumps when changing it;
+    \item It is not possible to use the input format used in \texttt{WebGossip} \parencite{gattinger_webgossip_nodate};
+    \item Impossible secret distributions (i.e. gossip graphs that cannot be generated from an initial gossip graph with just \(S = N = I_A \)) are allowed;
+    \item User input is not persisted; when the page is refreshed, all input is gone.
+\end{itemize}
+
+\subsubsection{Possible extensions of the tool}
+
+The current version of the tool allows user to model dynamic gossip protocols as defined in \textcite{van_ditmarsch_dynamic_2018}.
+However, there is more to gossip than what is described in that paper.
+In this section, other papers on (dynamic) gossip are presented which introduce an additional concept.
+To make the tool more broadly usable, it could be interesting to consider adding some or all of these aspects to the tool.
+
+The first possibility considered here is that of meta-knowledge or epistemic information, such as in \textcite{herzig_how_2017}.
+That means that agents can not only know secrets and numbers, 
+but also whether other agents know a secret or number.
+This allows for more complex protocols.
+
+Another idea is to include a temporal aspect, such as in \textcite{slavkovik_temporal_2019}
+(note that this paper also includes epistemic information).
+This means that agents cannot always be reached.
+The paper gives as examples for this problem communication between geostationary satellites that might not always be able to `see' each other,
+or a phone with a battery that sometimes does not have enough charge to communicate.
+This might be interesting, because this means that instead of calls being either always possible or always impossible, 
+they might \textit{sometimes} be possible or impossible as well.
+
+A related problem is introduced by \textcite{van_den_berg_unreliable_2018}: 
+normally, it is assumed that agents in dynamic gossip are reliable and tell the truth about the secrets they hold.
+However, if agents lie, many known properties of dynamic gossip suddenly no longer hold.
+By introducing unreliable agents, a new goal is added to the gossip system:
+\textit{identify the unreliable agents}.
+
+Another modification to secrets could be taken from \textcite{demers_epidemic_1988}, who propose a system in which all secrets have a `hotness'.
+This `hotness' indicates how often the secret has been spread.
+This can then be used as a heuristic to determine whether it is useful to communicate the secret.
+This might be interesting because in the current system, an agents communicates all their secrets in a call.
+However, in a real-life application, this might not be desired:
+In large networks, communicating all secrets all the time might lead to large amounts of data being sent even though this might be data the agents receiving the secrets already have.
+
+\begin{itemize}
+    \item Meta-knowledge \parencite{herzig_how_2017}
+    \item A temporal aspect \parencite[also includes meta-knowledge]{slavkovik_temporal_2019}
+    \item A decay factor (`hotness') to secrets \parencite{demers_epidemic_1988}
+    \item Asynchronous calls \addcite
+    \item Unreliable agents \parencite{van_den_berg_unreliable_2018}
+    \item UI adaptation for mobile devices
+    \item Add successfulness functionality, such as generating successful call sequences if available
+\end{itemize}

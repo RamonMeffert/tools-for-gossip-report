@@ -18,5 +18,8 @@ all: $(NAME).pdf
 $(NAME).pdf: $(NAME).tex
 	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make $(NAME).tex
 
+preview:
+	latexmk -pvc -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode" -use-make $(NAME).tex
+
 clean:
 	latexmk -CA

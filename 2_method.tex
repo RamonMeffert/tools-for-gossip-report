@@ -1,5 +1,154 @@
 % !TEX root = report.tex
 
-\section{Method}\label{sec:method}
+\section{Method}
+\label{sec:method}
 
+% TODO: Rewrite this paragraph so it has better flow
+To provide as much useful information as possible, the tool needs to provide information on a number of aspects of gossip.
+The first aspect that will be discussed is gossip graph visualisation, followed by protocol execution, call sequence validation and call (sequence) execution.
+First, a reasoning will be given behind the programming language of choice.
+Then, these aspects are discussed in terms of their meaning in both the context of gossip theory and of their implementation.
+Lastly, some time will be spent to explain how these aspects are integrated into the application.
 
+\subsection{Implementation}
+
+This project uses Elm, a statically typed functional programming language for web development with its roots in Functional Reactive Programming \parencite{czaplicki_asynchronous_2013}.
+This has several advantages:
+
+\begin{enumerate}
+    \item Implementing mathematical functions is more natural in functional languages because functions in Elm are pure;
+    \item Elm is compiled to standard Javascript. Since all modern browsers support Javascript, this ensures the application is cross-platform;
+    \item Elm does static type checking while compiling, ensuring type safety and thus reducing runtime errors;
+\end{enumerate}
+
+Another advantage of using a functional language is that much of the notation introduced in section~\ref{sec:notation} can be translated fairly directly.
+For example, to evaluate protocol conditions, the last call in a call sequence needs to be checked.
+In mathematical notation this is represented as \(\sigma_x = \tau \conc xy\) 
+(``the last call in the sequence of calls containing \(x\) was a call made by \(x\) to another agent \(y\)'').
+This can be represented in Elm quite naturally, as can be seen in Listing~\ref{lst:elm-ex-1}.
+
+\begin{lstlisting}[caption={\(\sigma_x = \tau \conc xy\) in Elm.}, label=lst:elm-ex-1]
+lastFrom agent sigma_x = 
+    case reverse sigma_x of
+        [] ->
+            False
+
+        (x, y) :: tau ->
+            x == agent
+\end{lstlisting}
+
+This states that if \(\sigma_x = \epsilon\), the condition is false. 
+Otherwise, it checks to see if the last call was made by \(x\), and returns true if that is the case.
+
+\subsubsection{Gossip graph visualisation}\label{sec:gossip-graph-visualisation}
+
+One of the easiest ways to visualise connections in a network is by using a graph.
+Therefore, the application is able to visualise gossip graphs based on user input.
+The input is provided by users in text, and uses a format based on the one used in the appendix of \textcite{van_ditmarsch_strengthening_2019}.
+However, since no complete grammar of that format is given,
+the format has been adapted to be a bit more permitting than could be expected based purely on its description.
+
+The basic idea behind the format is that every agent is represented by some letters, which in turn represent agent names.
+Uppercase letters represent the Secret relation \(S\) and lowercase letters represent the Number relation \(N\).
+Because every agent knows their own secret (\(I_A \subseteq S\)), it is possible to find names for all agents if and only if the input represents a valid gossip graph.
+That is, every agent is represented by some letter segment such that the number of segments is equal to the number of unique agent names, and every letter segment contains a secret relation that allows it to be uniquely identified.
+This procedure is described in more detail in Algorithm~\ref{alg:find-agents}.
+
+\begin{algorithm*}[p]
+    \SetKwInOut{Input}{input}
+    \SetKwInOut{Output}{output}
+    \SetKwFunction{Up}{GetUppercaseLetters}
+    \SetKwFunction{Error}{ShowError}
+    \SetKwData{Names}{names}
+    \SetKwData{Segments}{segments}
+    \SetKwData{Segment}{segment}
+    \SetKwData{PosNames}{possibleNames}
+    \SetKwData{Name}{name}
+    \SetKwData{Unique}{UniqueNameFound}
+    \DontPrintSemicolon
+
+    \Input{A list of letter sequences called \Segments}
+    \Output{A list of agent names}
+    \Names $\leftarrow$ \{\}\;
+    \ForEach{\Segment $\in$ \Segments}{
+        \PosNames $\leftarrow$ \Up{\Segment}\;
+        \Unique $\leftarrow$ false\;
+        \ForEach{\Name $\in$ \PosNames}{
+            \If{\Name $\notin$ \Names}{
+                \Names $\leftarrow$ \{\Name\} $\cup$ \Names\;
+                \Unique $\leftarrow$ true\;
+            }
+        }
+        \BlankLine
+        \If{$\neg $\Unique}{
+            \Error{}\;
+        }
+    }
+    \BlankLine
+    \Return{\Names}\;
+    \caption{Finding agent names}\label{alg:find-agents}
+\end{algorithm*}
+
+Once the agent names have been found, it is possible to parse the relations from the input string.
+Algorithm~\ref{alg:find-agents} assumes the first agent name it finds represents the first agent. 
+Thus, the first segment represents the relations of that agent.
+
+% more info
+
+This interpretation of the format is likely a bit more permissive than the original format.
+For example, in the original format, the names of agents always follow alphabetic order -- agent 1 is A, agent 2 is B, et cetera.
+Furthermore, the text segments in the original format are always ordered alphabetically.
+These requirements are not present in the implementation, so an input like \texttt{Xyz Yzx Zxy} is allowed.
+However, the tool does generate a so-called ``canonical input'' which does follow these rules.
+
+%TODO: Add paragraph about how graph is updated whenever the input changes and that helpful error messages are presented when the input is not valid.
+
+\subsubsection{Execution calls}
+
+\paragraph{Single calls}
+\label{sec:call-execution}
+When a gossip graph is given by the user, the tool allows them to execute calls and call sequences. 
+Because the possible calls depend on the active protocol,
+a list of possible calls is given for the currently active protocol.
+The possible calls are found by checking for call permissibility as defined in Definition~\ref{def:call-permissibility}.
+When the user clicks one of these calls, the call is executed.
+The call then happens according to Definition~\ref{def:call-effect-graph}.
+
+\paragraph{Call sequences}
+It is also possible to execute entire call sequences.
+The user is able to enter a call sequence using a text input according to the format given in Definition~\ref{def:call-sequence}.
+This sequence is then checked for possibility (Definition~\ref{def:call-sequence-possibility}) and permissibility (Definition~\ref{def:call-sequence-permissibility}).
+It should be noted that these checks are done in the order mentioned here.
+This means that the user receives feedback on their input when they enter a call sequence that is not possible on the current gossip graph.
+This has the added advantage that the system need not check for permissibility if the user enters a call sequence that is impossible.
+Additionally, because possibility is a requirement for permissibility and its check is executed before the permissibility check, this check does not need to occur in the check for permissibility;
+if the system reaches the permissibility check, the call sequence is guaranteed to be possible.
+
+\paragraph{Custom protocols}
+\label{sec:custom-protocols}
+To allow more flexibility in using protocols, 
+the tool described in this paper allows the user to create their own gossip protocols.
+This is done through a drag-and-drop interface,
+in which users can arrange boolean constituents or groups of boolean constituents.
+These constituents are then interspersed with either logical conjunction (\(\land\)) or logical disjunction (\(\lor\)) (see also Figure~\ref{fig:protocol-creator}).
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{example-image-1x1}
+    \caption{The interface for creating custom gossip protocols (placeholder)}
+    \label{fig:protocol-creator}
+\end{figure}
+
+The creation of custom protocols is based on the language \(\mathcal{L}_B(V)\) of boolean formulas, 
+given in the Backus-Naur form:
+\(\varphi ::= \top \mid p \mid \neg \varphi \mid \varphi \land \varphi\), where \(p \in V\). This is extended with the logical disjunction by virtue of the formula \(\varphi \lor \psi := \neg(\neg\varphi \land \neg\psi)\).
+For this tool, the vocabulary \(V\) is the set of constituents of protocol conditions as defined in Definition~\ref{def:protocol-condition}.
+
+\subsubsection{Execution tree and call history}
+
+Calls are recorded and it is possible to time travel between states.
+\textcolor{red}{Something about multiple branches}
+
+\subsection{Evaluation}
+
+Survey blah blah blah

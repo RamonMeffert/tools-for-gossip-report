@@ -1,184 +1,306 @@
 
-@article{hedetniemi_survey_1988,
-	title = {A survey of gossiping and broadcasting in communication networks},
-	volume = {18},
-	issn = {00283045, 10970037},
-	url = {http://doi.wiley.com/10.1002/net.3230180406},
-	doi = {10/dnzk4d},
-	pages = {319--349},
-	number = {4},
-	journaltitle = {Networks},
-	shortjournal = {Networks},
-	author = {Hedetniemi, Sandra M. and Hedetniemi, Stephen T. and Liestman, Arthur L.},
-	urldate = {2020-09-04},
-	date = {1988},
-	langid = {english},
-	file = {Hedetniemi et al. - 1988 - A survey of gossiping and broadcasting in communic.pdf:/Users/ramon/Zotero/storage/72K3BDH3/Hedetniemi et al. - 1988 - A survey of gossiping and broadcasting in communic.pdf:application/pdf}
+@article{czaplicki_asynchronous_2013,
+  title        = {Asynchronous Functional Reactive Programming for {GUIs}},
+  volume       = {48},
+  issn         = {0362-1340},
+  url          = {https://doi-org.proxy-ub.rug.nl/10.1145/2499370.2462161},
+  doi          = {10/f45mkb},
+  abstract     = {Graphical user interfaces ({GUIs}) mediate many of our interactions with computers. Functional Reactive Programming ({FRP}) is a promising approach to {GUI} design, providing high-level, declarative, compositional abstractions to describe user interactions and time-dependent computations. We present Elm, a practical {FRP} language focused on easy creation of responsive {GUIs}. Elm has two major features: simple declarative support for Asynchronous {FRP}; and purely functional graphical layout.Asynchronous {FRP} allows the programmer to specify when the global ordering of event processing can be violated, and thus enables efficient concurrent execution of {FRP} programs; long-running computation can be executed asynchronously and not adversely affect the responsiveness of the user interface.Layout in Elm is achieved using a purely functional declarative framework that makes it simple to create and combine text, images, and video into rich multimedia displays.Together, Elm's two major features simplify the complicated task of creating responsive and usable {GUIs}.},
+  pages        = {411--422},
+  number       = {6},
+  journaltitle = {{SIGPLAN} Not.},
+  author       = {Czaplicki, Evan and Chong, Stephen},
+  date         = {2013-06},
+  keywords     = {functional reactive programming, graphical user interfaces},
+  file         = {Czaplicki and Chong - Asynchronous functional reactive programming for G.pdf:/Users/ramon/Zotero/storage/U56FSLKB/Czaplicki and Chong - Asynchronous functional reactive programming for G.pdf:application/pdf}
 }
 
-@article{van_ditmarsch_epistemic_2017,
-	title = {Epistemic protocols for dynamic gossip},
-	volume = {20},
-	issn = {15708683},
-	url = {https://linkinghub.elsevier.com/retrieve/pii/S1570868316301161},
-	doi = {10/f9p6c3},
-	pages = {1--31},
-	journaltitle = {Journal of Applied Logic},
-	shortjournal = {Journal of Applied Logic},
-	author = {van Ditmarsch, Hans and van Eijck, Jan and Pardo, Pere and Ramezanian, Rahim and Schwarzentruber, François},
-	urldate = {2020-09-04},
-	date = {2017-03},
+@inproceedings{das_swim_2002,
+	location = {Washington, {DC}, {USA}},
+	title = {{SWIM}: scalable weakly-consistent infection-style process group membership protocol},
+	isbn = {978-0-7695-1597-7},
+	url = {http://ieeexplore.ieee.org/document/1028914/},
+	doi = {10/dfvrrz},
+	shorttitle = {{SWIM}},
+	abstract = {Several distributed peer-to-peer applications require weakly-consistent knowledge of process group membership information at all participating processes. {SWIM} is a generic software module that offers this service for largescale process groups. The {SWIM} effort is motivated by the unscalability of traditional heart-beating protocols, which either impose network loads that grow quadratically with group size, or compromise response times or false positive frequency w.r.t. detecting process crashes. This paper reports on the design, implementation and performance of the {SWIM} sub-system on a large cluster of commodity {PCs}.},
+	eventtitle = {International Conference on Dependable Systems and Networks},
+	pages = {303--312},
+	booktitle = {Proceedings International Conference on Dependable Systems and Networks},
+	publisher = {{IEEE} Comput. Soc},
+	author = {Das, A. and Gupta, I. and Motivala, A.},
+	urldate = {2020-12-24},
+	date = {2002},
 	langid = {english},
-	file = {van Ditmarsch et al. - 2017 - Epistemic protocols for dynamic gossip.pdf:/Users/ramon/Zotero/storage/YXQZFZRK/van Ditmarsch et al. - 2017 - Epistemic protocols for dynamic gossip.pdf:application/pdf}
+	file = {Das et al. - 2002 - SWIM scalable weakly-consistent infection-style p.pdf:/Users/ramon/Zotero/storage/SKFUYD7B/Das et al. - 2002 - SWIM scalable weakly-consistent infection-style p.pdf:application/pdf}
 }
 
-@article{van_ditmarsch_dynamic_2018,
-	title = {Dynamic Gossip},
-	volume = {45},
-	issn = {1017-060X, 1735-8515},
-	url = {http://link.springer.com/10.1007/s41980-018-0160-4},
-	doi = {10/cvpm},
-	abstract = {A gossip protocol is a procedure for spreading secrets among a group of agents, using a connection graph. The goal is for all agents to get to know all secrets, in which case we call the execution of the protocol successful. We consider distributed and dynamic gossip protocols. In distributed gossip, the agents themselves instead of a global scheduler determine whom to call. In dynamic gossip, not only secrets are exchanged but also telephone numbers (agent identities). This results in increased graph connectivity. We deﬁne six such distributed dynamic gossip protocols, and we characterize them in terms of the topology of the graphs on which they are successful, wherein we distinguish strong success (the protocol always terminates, possibly assuming fair scheduling) from weak success (the protocol sometimes terminates). For ﬁve of these protocols, strong success (fair) and weak success are characterized by weakly connected graphs. This result is surprising, because the protocols are fairly different. In the sixth protocol, an agent may only call another agent if it does not know the other agent’s secret. Strong success for this protocol is characterized by graphs for which the set of non-terminal nodes is strongly connected. Weak success for this protocol is characterized by weakly connected graphs satisfying further topological constraints that we deﬁne in the paper. One direction of this characterization is surprisingly harder to prove than the other results in this contribution.},
-	pages = {701--728},
-	number = {3},
-	journaltitle = {Bulletin of the Iranian Mathematical Society},
-	shortjournal = {Bull. Iran. Math. Soc.},
-	author = {van Ditmarsch, Hans and van Eijck, Jan and Pardo, Pere and Ramezanian, Rahim and Schwarzentruber, François},
-	urldate = {2020-09-04},
-	date = {2018-09},
+@inproceedings{decandia_dynamo_2007,
+	title = {Dynamo: Amazon’s Highly Available Key-value Store},
+	isbn = {978-1-59593-591-5},
+	doi = {10/bj8wqc},
+	series = {{SOSP} '07},
+	abstract = {Reliability at massive scale is one of the biggest challenges we face at Amazon.com, one of the largest e-commerce operations in the world; even the slightest outage has significant financial consequences and impacts customer trust. The Amazon.com platform, which provides services for many web sites worldwide, is implemented on top of an infrastructure of tens of thousands of servers and network components located in many datacenters around the world. At this scale, small and large components fail continuously and the way persistent state is managed in the face of these failures drives the reliability and scalability of the software systems.},
+	pages = {205--220},
+	booktitle = {Proceedings of twenty-first {ACM} {SIGOPS} symposium on Operating systems principles},
+	publisher = {Association for Computing Machinery},
+	author = {{DeCandia}, Giuseppe and Hastorun, Deniz and Jampani, Madan and Kakulapati, Gunavardhan and Lakshman, Avinash and Pilchin, Alex and Sivasubramanian, Swaminathan and Vosshall, Peter and Vogels, Werner},
+	date = {2007},
 	langid = {english},
-	file = {van Ditmarsch et al. - 2019 - Dynamic Gossip.pdf:/Users/ramon/Zotero/storage/KQQSDPX7/van Ditmarsch et al. - 2019 - Dynamic Gossip.pdf:application/pdf}
+	file = {DeCandia et al. - Dynamo Amazon’s Highly Available Key-value Store.pdf:/Users/ramon/Zotero/storage/VV7B4MNB/DeCandia et al. - Dynamo Amazon’s Highly Available Key-value Store.pdf:application/pdf}
+}
+
+@article{demers_epidemic_1988,
+  title        = {Epidemic algorithms for replicated database maintenance},
+  volume       = {22},
+  issn         = {0163-5980},
+  doi          = {10/fmhpvg},
+  pages        = {8--32},
+  number       = {1},
+  journaltitle = {{ACM} {SIGOPS} Operating Systems Review},
+  author       = {Demers, Alan and Greene, Dan and Houser, Carl and Irish, Wes and Larson, John and Shenker, Scott and Sturgis, Howard and Swinehart, Dan and Terry, Doug},
+  date         = {1988},
+  note         = {8},
+  file         = {43921.43922.pdf:/Users/ramon/Zotero/storage/JSLTIY8T/43921.43922.pdf:application/pdf}
+}
+
+@software{gattinger_m4lvingomoche_2020,
+  title    = {Explicit Epistemic Model Checking for Dynamic Gossip},
+  rights   = {{GPL}-3.0 License         ,                 {GPL}-3.0 License},
+  url      = {https://github.com/m4lvin/GoMoChe},
+  abstract = {🗣️📞 Gossip Model Checker. Contribute to m4lvin/{GoMoChe} development by creating an account on {GitHub}.},
+  author   = {Gattinger, Malvin},
+  urldate  = {2020-12-24},
+  date     = {2017},
+  keywords = {distributed-systems, epistemic-logic, gossip, haskell, model-checking, protocol}
 }
 
 @thesis{gattinger_new_2018,
-	location = {Institute for Logic, Language and Computation},
-	title = {New Directions in Model Checking Dynamic Epistemic Logic},
-	rights = {Copyright © 2018 by Malvin Gattinger},
-	abstract = {Dynamic Epistemic Logic ({DEL}) can model complex information scenarios in a way that appeals to logicians. However, its existing implementations are based on explicit model checking which can only deal with small models, so we do not know how {DEL} performs for larger and real-world problems.
+  location    = {Institute for Logic, Language and Computation},
+  title       = {New Directions in Model Checking Dynamic Epistemic Logic},
+  rights      = {Copyright © 2018 by Malvin Gattinger},
+  abstract    = {Dynamic Epistemic Logic ({DEL}) can model complex information scenarios in a way that appeals to logicians. However, its existing implementations are based on explicit model checking which can only deal with small models, so we do not know how {DEL} performs for larger and real-world problems.
 For temporal logics, in contrast, symbolic model checking has been developed and successfully applied, for example in protocol and hardware verification. Sym- bolic model checkers for temporal logics are very efficient and can deal with very large models.
 In this thesis we build a bridge: new faithful representations of {DEL} models as so-called knowledge and belief structures that allow for symbolic model checking. For complex epistemic and factual change we introduce knowledge and belief transformers, a symbolic replacement for action models.
 Besides a detailed explanation of the theory, the thesis presents {SMCDEL}: a Haskell implementation of symbolic model checking for {DEL} using Binary Decision Diagrams.
 Our new methods can solve well-known benchmark problems in epistemic scenarios much faster than existing methods for {DEL}. We also compare the performance of the implementation to existing model checkers for temporal logics and show that {DEL} can compete with the established frameworks.
 We zoom in on two specific variants of {DEL} for concrete applications. First, we introduce Public Inspection Logic ({PIL}), a new framework for the knowledge of variables and its dynamics. Second, we study the dynamic gossip problem and how it can be analyzed with epistemic logic. We show that existing gossip protocols can be improved, but also prove that no perfect strengthening of the “Learn New Secrets” protocol exists.
 This research allows {DEL} to join the club of efficiently implemented and applicable logics. It opens up new directions, both towards real-world applications and further development of the theory of symbolic representation.},
-	pagetotal = {225},
-	institution = {Universiteit van Amsterdam},
-	type = {phdthesis},
-	author = {Gattinger, Malvin},
-	date = {2018-06},
-	langid = {english},
-	keywords = {⛔ No {DOI} found},
-	file = {Gattinger - New Directions in Model Checking Dynamic Epistemic.pdf:/Users/ramon/Zotero/storage/6ZM5YMYK/Gattinger - New Directions in Model Checking Dynamic Epistemic.pdf:application/pdf}
+  pagetotal   = {225},
+  institution = {Universiteit van Amsterdam},
+  type        = {phdthesis},
+  author      = {Gattinger, Malvin},
+  date        = {2018-06},
+  langid      = {english},
+  keywords    = {⛔ No {DOI} found},
+  file        = {Gattinger - New Directions in Model Checking Dynamic Epistemic.pdf:/Users/ramon/Zotero/storage/6ZM5YMYK/Gattinger - New Directions in Model Checking Dynamic Epistemic.pdf:application/pdf}
 }
 
-@article{van_ditmarsch_strengthening_2019,
-	title = {Strengthening Gossip Protocols using Protocol-Dependent Knowledge},
-	volume = {6},
-	abstract = {Distributed dynamic gossip is a generalization of the classic telephone problem in which agents communicate to share secrets, with the additional twist that also telephone numbers are exchanged to determine who can call whom. Recent work focused on the success conditions of simple protocols such as “Learn New Secrets” ({LNS}) wherein an agent a may only call another agent b if a does not know b’s secret. A protocol execution is successful if all agents get to know all secrets. On partial networks these protocols sometimes fail because they ignore information available to the agents that would allow for better coordination. We study how epistemic protocols for dynamic gossip can be strengthened, using epistemic logic as a simple protocol language with a new operator for protocol-dependent knowledge. We provide deﬁnitions of diﬀerent strengthenings and show that they perform better than {LNS}, but we also prove that there is no strengthening of {LNS} that always terminates successfully. Together, this gives us a better picture of when and how epistemic coordination can help in the dynamic gossip problem in particular and distributed systems in general.},
-	pages = {157--203},
-	number = {1},
-	journaltitle = {Journal of Applied Logics},
-	author = {van Ditmarsch, Hans and Gattinger, Malvin and Kuijer, Louwe B and Pardo, Pere},
-	date = {2019},
-	langid = {english},
-	keywords = {⛔ No {DOI} found},
-	file = {van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:/Users/ramon/Zotero/storage/R2TPFR6Z/van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:application/pdf}
-}
-
-@article{kermack_contribution_1927,
-	title = {A Contribution to the Mathematical Theory of Epidemics},
-	volume = {115},
-	url = {http://www.jstor.org/stable/94815},
-	doi = {10.2307/94815},
-	series = {A},
-	pages = {700--721},
-	number = {772},
-	journaltitle = {Proceedings of the Royal Society of London},
-	author = {Kermack, W. O. and {McKendrick}, A. G.},
-	date = {1927},
-	langid = {english},
-	keywords = {⛔ No {DOI} found, ⚠️ Invalid {DOI}},
-	file = {Kermack and McKendrick - 1927 - A Contribution to the Mathematical Theory of Epide.pdf:/Users/ramon/Zotero/storage/EPVF9MK2/Kermack and McKendrick - 1927 - A Contribution to the Mathematical Theory of Epide.pdf:application/pdf}
+@online{gattinger_webgossip_nodate,
+  title   = {{WebGossip}},
+  url     = {https://w4eg.de/malvin/illc/webgossip},
+  author  = {Gattinger, Malvin},
+  urldate = {2020-12-24},
+  file    = {webGossip:/Users/ramon/Zotero/storage/XCIBR8D4/webgossip.html:text/html}
 }
 
 @article{hajnal_cure_1972,
-	title = {A Cure for the Telephone Disease},
-	volume = {15},
-	issn = {0008-4395, 1496-4287},
-	url = {https://www.cambridge.org/core/product/identifier/S0008439500061579/type/journal_article},
-	doi = {10/cpr4cv},
-	abstract = {The following problem due to A. Boyd, has enjoyed a certain popularity in recent months with several mathematicians. A different solution to the one given here has been given independently by R. T. Bumby and J. Spencer.
+  title        = {A Cure for the Telephone Disease},
+  volume       = {15},
+  issn         = {0008-4395, 1496-4287},
+  url          = {https://www.cambridge.org/core/product/identifier/S0008439500061579/type/journal_article},
+  doi          = {10/cpr4cv},
+  abstract     = {The following problem due to A. Boyd, has enjoyed a certain popularity in recent months with several mathematicians. A different solution to the one given here has been given independently by R. T. Bumby and J. Spencer.
             
               The Problem, There are n ladies, and each one of them knows an item of scandal which is not known to any of the others. They communicate by telephone, and whenever two ladies make a call, they pass on to each other, as much scandal as they know at that time. How many calls are needed before all the ladies know all the scandal?},
-	pages = {447--450},
-	number = {3},
-	journaltitle = {Canadian Mathematical Bulletin},
-	shortjournal = {Can. math. bull.},
-	author = {Hajnal, A. and Milner, E. C. and Szemerédi, E.},
-	urldate = {2020-10-05},
-	date = {1972-09},
-	langid = {english},
-	file = {Hajnal et al. - 1972 - A Cure for the Telephone Disease.pdf:/Users/ramon/Zotero/storage/FG7VISCE/Hajnal et al. - 1972 - A Cure for the Telephone Disease.pdf:application/pdf}
+  pages        = {447--450},
+  number       = {3},
+  journaltitle = {Canadian Mathematical Bulletin},
+  shortjournal = {Can. math. bull.},
+  author       = {Hajnal, A. and Milner, E. C. and Szemerédi, E.},
+  urldate      = {2020-10-05},
+  date         = {1972-09},
+  langid       = {english},
+  file         = {Hajnal et al. - 1972 - A Cure for the Telephone Disease.pdf:/Users/ramon/Zotero/storage/FG7VISCE/Hajnal et al. - 1972 - A Cure for the Telephone Disease.pdf:application/pdf}
+}
+
+@article{hedetniemi_survey_1988,
+  title        = {A survey of gossiping and broadcasting in communication networks},
+  volume       = {18},
+  issn         = {00283045, 10970037},
+  url          = {http://doi.wiley.com/10.1002/net.3230180406},
+  doi          = {10/dnzk4d},
+  pages        = {319--349},
+  number       = {4},
+  journaltitle = {Networks},
+  shortjournal = {Networks},
+  author       = {Hedetniemi, Sandra M. and Hedetniemi, Stephen T. and Liestman, Arthur L.},
+  urldate      = {2020-09-04},
+  date         = {1988},
+  langid       = {english},
+  file         = {Hedetniemi et al. - 1988 - A survey of gossiping and broadcasting in communic.pdf:/Users/ramon/Zotero/storage/72K3BDH3/Hedetniemi et al. - 1988 - A survey of gossiping and broadcasting in communic.pdf:application/pdf}
+}
+
+@article{herzig_how_2017,
+  title        = {How to share knowledge by gossiping},
+  volume       = {30},
+  issn         = {18758452, 09217126},
+  url          = {https://www.medra.org/servlet/aliasResolver?alias=iospress&doi=10.3233/AIC-170723},
+  doi          = {10/f94qxh},
+  abstract     = {We provide a logical investigation of a simple case of communication in a network of agents called the gossip problem. Its classical version is: given n agents each of which has a secret – a fact not known to anybody else –, how many calls does it take to achieve shared knowledge of all secrets, i.e., to reach a state where every agent knows every secret? Several protocols achieving shared knowledge in 2(n − 2) calls exist and were proved to be optimal: no shorter sequence of calls exists. We generalize that problem and focus on higher-order shared knowledge: how many calls does it take to obtain that everybody knows that everybody knows all secrets? More generally, how many calls does it take to obtain shared knowledge of order k? This cannot be achieved simply by communicating facts: the agents also have to communicate higher-order knowledge of facts. We give an algorithm that works in (k + 1)(n − 2) calls. We analyse its properties in a logic that we have investigated in previous work and that is based on the concept of observability of propositional variables by agents: Dynamic Epistemic Logic of Propositional Assignment and Observation {DEL}-{PAO}. This enables us in particular to give a formal proof of correctness of the algorithm.},
+  pages        = {1--17},
+  number       = {1},
+  journaltitle = {{AI} Communications},
+  shortjournal = {{AIC}},
+  author       = {Herzig, Andreas and Maffre, Faustine},
+  urldate      = {2020-12-24},
+  date         = {2017-03-27},
+  langid       = {english},
+  file         = {Herzig and Maffre - 2017 - How to share knowledge by gossiping.pdf:/Users/ramon/Zotero/storage/9EVEZ7E2/Herzig and Maffre - 2017 - How to share knowledge by gossiping.pdf:application/pdf}
+}
+
+@article{kermack_contribution_1927,
+  title        = {A Contribution to the Mathematical Theory of Epidemics},
+  volume       = {115},
+  url          = {http://www.jstor.org/stable/94815},
+  doi          = {10.2307/94815},
+  series       = {A},
+  pages        = {700--721},
+  number       = {772},
+  journaltitle = {Proceedings of the Royal Society of London},
+  author       = {Kermack, W. O. and {McKendrick}, A. G.},
+  year         = {1927},
+  langid       = {english},
+  keywords     = {⛔ No {DOI} found, ⚠️ Invalid {DOI}},
+  file         = {Kermack and McKendrick - 1927 - A Contribution to the Mathematical Theory of Epide.pdf:/Users/ramon/Zotero/storage/EPVF9MK2/Kermack and McKendrick - 1927 - A Contribution to the Mathematical Theory of Epide.pdf:application/pdf}
+}
+
+@software{maffre_faustinemaffregossipproblem-pddl-generator_2020,
+  title    = {Gossip problem {PDDL}-generator},
+  rights   = {{MIT} License         ,                 {MIT} License},
+  url      = {https://github.com/FaustineMaffre/GossipProblem-PDDL-generator},
+  abstract = {Generator for the generalized gossip problem and its extension with negative goals},
+  author   = {Maffre, Faustine},
+  urldate  = {2020-12-24},
+  date     = {2016}
 }
 
 @online{maguire_elm_2016,
-	title = {Elm Is Wrong},
-	url = {https://reasonablypolymorphic.com/blog/elm-is-wrong/},
-	titleaddon = {Reasonably Polymorphic},
-	type = {blog},
-	author = {Maguire, Sandy},
-	urldate = {2020-10-10},
-	date = {2016-04-12},
-	file = {Elm Is Wrong \:\: Reasonably Polymorphic:/Users/ramon/Zotero/storage/K86DI5PW/elm-is-wrong.html:text/html}
+  title      = {Elm Is Wrong},
+  url        = {https://reasonablypolymorphic.com/blog/elm-is-wrong/},
+  titleaddon = {Reasonably Polymorphic},
+  type       = {blog},
+  author     = {Maguire, Sandy},
+  urldate    = {2020-10-10},
+  date       = {2016-04-12},
+  file       = {Elm Is Wrong \:\: Reasonably Polymorphic:/Users/ramon/Zotero/storage/K86DI5PW/elm-is-wrong.html:text/html}
+}
+
+
+@software{moelker_rrmoelkergossip-visualization_2016,
+  title    = {Visualization of Gossip protocol simulation},
+  url      = {https://github.com/RRMoelker/gossip-visualization},
+  abstract = {Gossip membership visualization. Contribute to {RRMoelker}/gossip-visualization development by creating an account on {GitHub}.},
+  author   = {Moelker, Ruurd},
+  urldate  = {2020-12-24},
+  date     = {2016}
+}
+
+
+@online{noauthor_amazon_2008,
+  title      = {Amazon S3 Availability Event: July 20, 2008},
+  url        = {https://status.aws.amazon.com/s3-20080720.html},
+  titleaddon = {{AWS} Service Health Dashboard},
+  urldate    = {2020-10-20},
+  date       = {2008-07-21},
+  file       = {AWS Service Health Dashboard - Amazon S3 Availability Event\: July 20, 2008:/Users/ramon/Zotero/storage/V8DIFI6N/s3-20080720.html:text/html}
 }
 
 @online{rempel_expressing_2018,
-	title = {Expressing a Relationship between Multiple Types in Elm},
-	url = {https://www.gizra.com/content/elm-related-types/},
-	abstract = {What options do you have when Elm types have something in common? Have you considered type classes?},
-	titleaddon = {Web Strategy + Design + Development {\textbar} Gizra},
-	author = {Rempel, Ryan},
-	urldate = {2020-10-13},
-	date = {2018-02-06},
-	file = {Snapshot:/Users/ramon/Zotero/storage/948RXDAB/elm-related-types.html:text/html}
+  title      = {Expressing a Relationship between Multiple Types in Elm},
+  url        = {https://www.gizra.com/content/elm-related-types/},
+  abstract   = {What options do you have when Elm types have something in common? Have you considered type classes?},
+  titleaddon = {Web Strategy + Design + Development {\textbar} Gizra},
+  author     = {Rempel, Ryan},
+  urldate    = {2020-10-13},
+  date       = {2018-02-06},
+  file       = {Snapshot:/Users/ramon/Zotero/storage/948RXDAB/elm-related-types.html:text/html}
 }
 
-@online{noauthor_amazon_2008,
-	title = {Amazon S3 Availability Event: July 20, 2008},
-	url = {https://status.aws.amazon.com/s3-20080720.html},
-	titleaddon = {{AWS} Service Health Dashboard},
-	urldate = {2020-10-20},
-	date = {2008-07-21},
-	file = {AWS Service Health Dashboard - Amazon S3 Availability Event\: July 20, 2008:/Users/ramon/Zotero/storage/V8DIFI6N/s3-20080720.html:text/html}
+@incollection{slavkovik_temporal_2019,
+  location  = {Cham},
+  title     = {Temporal Epistemic Gossip Problems},
+  volume    = {11450},
+  url       = {http://link.springer.com/10.1007/978-3-030-14174-5_1},
+  abstract  = {Gossip problems are planning problems where several agents have to share information (‘secrets’) by means of phone calls between two agents. In epistemic gossip problems the goal can be to achieve higher-order knowledge, i.e., knowledge about other agents’ knowledge; to that end, in a call agents communicate not only secrets, but also agents’ knowledge of secrets, agents’ knowledge about other agents’ knowledge about secrets, etc. Temporal epistemic gossip problems moreover impose constraints on the times of calls. These constraints are of two kinds: either they stipulate that a call between two agents must necessarily be made at some time point, or they stipulate that a call can be made within some possible (set of) interval(s). In the non-temporal version, calls between two agents are either always possible or always impossible. We investigate the complexity of the plan existence problem in this gen-eral setting. Concerning the upper bound, we prove that it is in {NP} in the general case, and that it is in P when the problem is non-temporal and the goal is a positive epistemic formula. As for the lower bound, we prove {NPcompleteness} for two fragments: problems with possibly neg-ative goals even in the non-temporal case, and problems with temporal constraints even if the goal is a set of positive atoms.},
+  pages     = {1--14},
+  booktitle = {Multi-Agent Systems},
+  publisher = {Springer International Publishing},
+  author    = {Cooper, Martin C. and Herzig, Andreas and Maris, Frédéric and Vianey, Julien},
+  editor    = {Slavkovik, Marija},
+  urldate   = {2020-12-24},
+  date      = {2019},
+  langid    = {english},
+  doi       = {10.1007/978-3-030-14174-5_1},
+  file      = {Cooper et al. - 2019 - Temporal Epistemic Gossip Problems.pdf:/Users/ramon/Zotero/storage/2VEXXUQT/Cooper et al. - 2019 - Temporal Epistemic Gossip Problems.pdf:application/pdf}
 }
 
-@article{demers_epidemic_1988,
-	title = {Epidemic algorithms for replicated database maintenance},
-	volume = {22},
-	issn = {0163-5980},
-	doi = {10/fmhpvg},
-	pages = {8--32},
-	number = {1},
-	journaltitle = {{ACM} {SIGOPS} Operating Systems Review},
-	author = {Demers, Alan and Greene, Dan and Houser, Carl and Irish, Wes and Larson, John and Shenker, Scott and Sturgis, Howard and Swinehart, Dan and Terry, Doug},
-	date = {1988},
-	note = {8},
-	file = {43921.43922.pdf:/Users/ramon/Zotero/storage/JSLTIY8T/43921.43922.pdf:application/pdf}
+@thesis{van_den_berg_unreliable_2018,
+  title       = {Unreliable Gossip},
+  url         = {https://eprints.illc.uva.nl/1597/1/MoL-2018-01.text.pdf},
+  pagetotal   = {106},
+  institution = {Universiteit van Amsterdam},
+  type        = {Master Thesis},
+  author      = {van den Berg, Line},
+  date        = {2018-01-12},
+  file        = {MoL-2018-01.text.pdf:/Users/ramon/Zotero/storage/LFS59VNT/MoL-2018-01.text.pdf:application/pdf}
+}
+
+@article{van_ditmarsch_dynamic_2018,
+  title        = {Dynamic Gossip},
+  volume       = {45},
+  issn         = {1017-060X, 1735-8515},
+  url          = {http://link.springer.com/10.1007/s41980-018-0160-4},
+  doi          = {10/cvpm},
+  abstract     = {A gossip protocol is a procedure for spreading secrets among a group of agents, using a connection graph. The goal is for all agents to get to know all secrets, in which case we call the execution of the protocol successful. We consider distributed and dynamic gossip protocols. In distributed gossip, the agents themselves instead of a global scheduler determine whom to call. In dynamic gossip, not only secrets are exchanged but also telephone numbers (agent identities). This results in increased graph connectivity. We deﬁne six such distributed dynamic gossip protocols, and we characterize them in terms of the topology of the graphs on which they are successful, wherein we distinguish strong success (the protocol always terminates, possibly assuming fair scheduling) from weak success (the protocol sometimes terminates). For ﬁve of these protocols, strong success (fair) and weak success are characterized by weakly connected graphs. This result is surprising, because the protocols are fairly different. In the sixth protocol, an agent may only call another agent if it does not know the other agent’s secret. Strong success for this protocol is characterized by graphs for which the set of non-terminal nodes is strongly connected. Weak success for this protocol is characterized by weakly connected graphs satisfying further topological constraints that we deﬁne in the paper. One direction of this characterization is surprisingly harder to prove than the other results in this contribution.},
+  pages        = {701--728},
+  number       = {3},
+  journaltitle = {Bulletin of the Iranian Mathematical Society},
+  shortjournal = {Bull. Iran. Math. Soc.},
+  author       = {van Ditmarsch, Hans and van Eijck, Jan and Pardo, Pere and Ramezanian, Rahim and Schwarzentruber, François},
+  urldate      = {2020-09-04},
+  date         = {2018-09},
+  langid       = {english},
+  file         = {van Ditmarsch et al. - 2019 - Dynamic Gossip.pdf:/Users/ramon/Zotero/storage/KQQSDPX7/van Ditmarsch et al. - 2019 - Dynamic Gossip.pdf:application/pdf}
+}
+
+@article{van_ditmarsch_epistemic_2017,
+  title        = {Epistemic protocols for dynamic gossip},
+  volume       = {20},
+  issn         = {15708683},
+  url          = {https://linkinghub.elsevier.com/retrieve/pii/S1570868316301161},
+  doi          = {10/f9p6c3},
+  pages        = {1--31},
+  journaltitle = {Journal of Applied Logic},
+  shortjournal = {Journal of Applied Logic},
+  author       = {van Ditmarsch, Hans and van Eijck, Jan and Pardo, Pere and Ramezanian, Rahim and Schwarzentruber, François},
+  urldate      = {2020-09-04},
+  date         = {2017-03},
+  langid       = {english},
+  file         = {van Ditmarsch et al. - 2017 - Epistemic protocols for dynamic gossip.pdf:/Users/ramon/Zotero/storage/YXQZFZRK/van Ditmarsch et al. - 2017 - Epistemic protocols for dynamic gossip.pdf:application/pdf}
 }
 
 
-@article{czaplicki_asynchronous_2013,
-	title = {Asynchronous Functional Reactive Programming for {GUIs}},
-	volume = {48},
-	issn = {0362-1340},
-	url = {https://doi-org.proxy-ub.rug.nl/10.1145/2499370.2462161},
-	doi = {10/f45mkb},
-	abstract = {Graphical user interfaces ({GUIs}) mediate many of our interactions with computers. Functional Reactive Programming ({FRP}) is a promising approach to {GUI} design, providing high-level, declarative, compositional abstractions to describe user interactions and time-dependent computations. We present Elm, a practical {FRP} language focused on easy creation of responsive {GUIs}. Elm has two major features: simple declarative support for Asynchronous {FRP}; and purely functional graphical layout.Asynchronous {FRP} allows the programmer to specify when the global ordering of event processing can be violated, and thus enables efficient concurrent execution of {FRP} programs; long-running computation can be executed asynchronously and not adversely affect the responsiveness of the user interface.Layout in Elm is achieved using a purely functional declarative framework that makes it simple to create and combine text, images, and video into rich multimedia displays.Together, Elm's two major features simplify the complicated task of creating responsive and usable {GUIs}.},
-	pages = {411--422},
-	number = {6},
-	journaltitle = {{SIGPLAN} Not.},
-	author = {Czaplicki, Evan and Chong, Stephen},
-	date = {2013-06},
-	keywords = {functional reactive programming, graphical user interfaces},
-	file = {Czaplicki and Chong - Asynchronous functional reactive programming for G.pdf:/Users/ramon/Zotero/storage/U56FSLKB/Czaplicki and Chong - Asynchronous functional reactive programming for G.pdf:application/pdf}
+@article{van_ditmarsch_strengthening_2019,
+  title        = {Strengthening Gossip Protocols using Protocol-Dependent Knowledge},
+  volume       = {6},
+  abstract     = {Distributed dynamic gossip is a generalization of the classic telephone problem in which agents communicate to share secrets, with the additional twist that also telephone numbers are exchanged to determine who can call whom. Recent work focused on the success conditions of simple protocols such as “Learn New Secrets” ({LNS}) wherein an agent a may only call another agent b if a does not know b’s secret. A protocol execution is successful if all agents get to know all secrets. On partial networks these protocols sometimes fail because they ignore information available to the agents that would allow for better coordination. We study how epistemic protocols for dynamic gossip can be strengthened, using epistemic logic as a simple protocol language with a new operator for protocol-dependent knowledge. We provide deﬁnitions of diﬀerent strengthenings and show that they perform better than {LNS}, but we also prove that there is no strengthening of {LNS} that always terminates successfully. Together, this gives us a better picture of when and how epistemic coordination can help in the dynamic gossip problem in particular and distributed systems in general.},
+  pages        = {157--203},
+  number       = {1},
+  journaltitle = {Journal of Applied Logics},
+  author       = {van Ditmarsch, Hans and Gattinger, Malvin and Kuijer, Louwe B and Pardo, Pere},
+  date         = {2019},
+  langid       = {english},
+  keywords     = {⛔ No {DOI} found},
+  file         = {van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:/Users/ramon/Zotero/storage/R2TPFR6Z/van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:application/pdf}
 }
+
