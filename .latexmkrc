@@ -1,1 +1,1 @@
-@default_files = ('report.tex');
+@default_files = ('0_report.tex');

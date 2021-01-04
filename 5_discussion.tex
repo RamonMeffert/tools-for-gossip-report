@@ -1,11 +1,18 @@
-% !TEX root = report.tex
+% !TEX root = 0_report.tex
 
 \section{Discussion}
+
+\subsection{Survey}
+
+While the survey yielded useful results, its exploratory nature along with its low number of replies means that its results are difficult to analyse quantitatively analyse.
+Therefore, it could be interesting to perform a larger user study.
+This could include a larger survey focused more on objective analysis of the tool's ergonomics.
+Another option would be to perform a number of cooperative walk-throughs to gain more insight in problems users might face.
 
 \subsection{Further research}
 
 At the time of publication of this report, several planned features -- some planned some time ago, some arising from the results of the survey -- have not been implemented yet.
-These features \textcolor{red}{are being worked on, but are included for completeness in this version of the paper in case any of them end up not being completed by the time this report is submitted.}
+\textcolor{red}{These features are still in development, but are included for completeness in this version of the paper in case any of them end up not being completed by the time this report is submitted.}
 
 \begin{itemize}
     \item The custom protocol creation (Section~\ref{sec:custom-protocols}) is not finished yet, and still lives in a separate git repository;
@@ -16,6 +23,8 @@ These features \textcolor{red}{are being worked on, but are included for complet
     \item Impossible secret distributions (i.e. gossip graphs that cannot be generated from an initial gossip graph with just \(S = N = I_A \)) are allowed;
     \item User input is not persisted; when the page is refreshed, all input is gone.
 \end{itemize}
+
+
 
 \subsubsection{Possible extensions of the tool}
 
@@ -50,12 +59,19 @@ This might be interesting because in the current system, an agents communicates 
 However, in a real-life application, this might not be desired:
 In large networks, communicating all secrets all the time might lead to large amounts of data being sent even though this might be data the agents receiving the secrets already have.
 
+Besides these improvements to the functionality of the tool, 
+another possible improvement would be to make it suitable for usage on mobile devices such as smartphones and tablets.
+According to \textcite{cisco_cisco_2020}, the number of mobile devices used to access the internet is larger than the number of desktop devices, and is still increasing.
+This increase is also most visible among younger people,
+and since a key user group of this tool is intended to be students,
+having the tool be usable on a mobile device will probably increase the likelihood of it being used.
+
 \begin{itemize}
     \item Meta-knowledge \parencite{herzig_how_2017}
     \item A temporal aspect \parencite[also includes meta-knowledge]{slavkovik_temporal_2019}
     \item A decay factor (`hotness') to secrets \parencite{demers_epidemic_1988}
     \item Asynchronous calls \addcite
     \item Unreliable agents \parencite{van_den_berg_unreliable_2018}
-    \item UI adaptation for mobile devices
+    \item UI adaptation for mobile devices \parencite{cisco_cisco_2020}
     \item Add successfulness functionality, such as generating successful call sequences if available
 \end{itemize}

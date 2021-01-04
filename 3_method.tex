@@ -1,4 +1,4 @@
-% !TEX root = report.tex
+% !TEX root = 0_report.tex
 
 \section{Method}
 \label{sec:method}
@@ -146,9 +146,19 @@ For this tool, the vocabulary \(V\) is the set of constituents of protocol condi
 
 \subsubsection{Execution tree and call history}
 
-Calls are recorded and it is possible to time travel between states.
-\textcolor{red}{Something about multiple branches}
+Whenever a call or call sequence is executed, the calls are recorded on a timeline.
+This timeline is displayed as the initial graph and the sequence of calls performed on it.
+Users are able to navigate between different states of the gossip graph by clicking a call,
+which changes the state of the gossip graph to the state it had after the clicked call.
+
+\textcolor{red}{To do: add a piece about the execution tree once that is implemented}
 
 \subsection{Evaluation}
 
-Survey blah blah blah
+To evaluate the usability and applicability of the tool,
+a short exploratory survey was sent out to a number of researchers active in the field of (dynamic) gossip.
+The purpose of this survey was to evaluate the ease of use,
+applicability of the tool,
+identification of most important features and suggestions for improvement and/or extensions.
+The survey was open for responses during the period between December 19, 2020 and \textcolor{red}{January X}, 2021.
+The questions used can be found in Appendix~\ref{ap:survey}.

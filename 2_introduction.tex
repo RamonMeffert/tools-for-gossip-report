@@ -1,4 +1,4 @@
-% !TEX root = report.tex
+% !TEX root = 0_report.tex
 
 \section{Introduction}
 \label{sec:introduction}
@@ -64,6 +64,11 @@ The main differences between this tool and the tool described in this paper can 
             & \texttt{WebGossip} 
             & This paper\\
         \midrule
+        Interface
+            & Command line
+            & Web
+            & Web
+            \\
         Gossip graph visualisation
             & \tpos{Yes}
             & \tpos{Yes}
@@ -127,7 +132,8 @@ The notation used is explained below.
 \begin{definition}[Relations on gossip graphs]
     
 \begin{subdefinition}[Binary relation]
-    \(Pxy\) says that agent \(x\) has relation \(P\) to agent \(y\).
+    \(Pxy\) says that agent \(x\) has relation \(P\) to agent \(y\). 
+    A binary relation is notated as a tuple \((x,y)\) and represents a directed relation from \(x\) to \(y\). 
     
     Formally: \((x, y) \in P\)
     \label{def:rel-bin}
@@ -244,7 +250,7 @@ The notation used is explained below.
 
     \begin{subdefinition}[Call permissibility]
         \label{def:call-permissibility}
-        A call \(xy\) is permitted on a gossip graph \(G^\tau\) with a (possibly empty) history \(\tau\) iff \(\tau\) is possible on \(G\), \(x \neq y\), \(N^\tau xy\) and \(G^\tau \models \pi(x,y)\).
+        A call \(xy\) is permitted on a gossip graph \(G^\tau\) with a (possibly empty) history \(\tau\) iff \(\tau\) is possible on \(G\), \(x \neq y\), \(N^\tau xy\) and \(G^\tau \models \pi(x,y)\) \textcolor{red}{(Does this notation make sense?)}.
     \end{subdefinition}
 
     \begin{subdefinition}[Call sequence permissibility]

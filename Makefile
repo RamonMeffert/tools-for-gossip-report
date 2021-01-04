@@ -1,4 +1,4 @@
-NAME=report
+NAME=0_report
 all: $(NAME).pdf
 
 # You want latexmk to *always* run, because make does not have all the info.
