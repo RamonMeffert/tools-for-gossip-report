@@ -4,39 +4,35 @@
 
 \subsection{Survey}
 
-While the survey yielded useful results, its exploratory nature along with its low number of replies means that its results are difficult to analyse quantitatively analyse.
+While the survey yielded useful results, its exploratory nature along with the low number of respondents mean that its results are difficult to quantitatively analyse.
 Therefore, it could be interesting to perform a larger user study.
 This could include a larger survey focused more on objective analysis of the tool's ergonomics.
 Another option would be to perform a number of cooperative walk-throughs to gain more insight in problems users might face.
 
 \subsection{Further research}
 
-At the time of publication of this report, several planned features -- some planned some time ago, some arising from the results of the survey -- have not been implemented yet.
-\textcolor{red}{These features are still in development, but are included for completeness in this version of the paper in case any of them end up not being completed by the time this report is submitted.}
+At the time of publication of this report, several planned features -- some part of the initial concept, some arising from the results of the survey -- have not been implemented yet. For completeness' sake, we will list these features here shortly:
 
 \begin{itemize}
-    \item The custom protocol creation (Section~\ref{sec:custom-protocols}) is not finished yet, and still lives in a separate git repository;
-    \item It is not possible to create execution trees yet, though a linear call history is generated after executing calls;
-    \item Clicking calls (Section~\ref{sec:call-execution}) does not execute them yet;
+    \item The custom protocol creation (Section~\ref{sec:custom-protocols}) does not work yet;
     \item The rendered graph sometimes jumps when changing it;
-    \item It is not possible to use the input format used in \texttt{WebGossip} \parencite{gattinger_webgossip_nodate};
-    \item Impossible secret distributions (i.e. gossip graphs that cannot be generated from an initial gossip graph with just \(S = N = I_A \)) are allowed;
     \item User input is not persisted; when the page is refreshed, all input is gone.
 \end{itemize}
 
-
+Besides these features, a more up-to-date list of smaller planned features and bug fixes can be found at \url{https://github.com/RamonMeffert/tools-for-gossip/issues}.
 
 \subsubsection{Possible extensions of the tool}
 
 The current version of the tool allows user to model dynamic gossip protocols as defined in \textcite{van_ditmarsch_dynamic_2018}.
 However, there is more to gossip than what is described in that paper.
-In this section, other papers on (dynamic) gossip are presented which introduce an additional concept.
-To make the tool more broadly usable, it could be interesting to consider adding some or all of these aspects to the tool.
+In this section, other papers on (dynamic) gossip are presented which introduce additional concepts.
+To make the tool more broadly usable, it could be interesting to add some or all of these aspects to the tool.
 
 The first possibility considered here is that of meta-knowledge or epistemic information, such as in \textcite{herzig_how_2017}.
 That means that agents can not only know secrets and numbers, 
 but also whether other agents know a secret or number.
 This allows for more complex protocols.
+An example of this can be found in the \texttt{GoMoChe} tool \parencite{gattinger_m4lvingomoche_2020}.
 
 Another idea is to include a temporal aspect, such as in \textcite{slavkovik_temporal_2019}
 (note that this paper also includes epistemic information).
@@ -46,11 +42,12 @@ or a phone with a battery that sometimes does not have enough charge to communic
 This might be interesting, because this means that instead of calls being either always possible or always impossible, 
 they might \textit{sometimes} be possible or impossible as well.
 
-A related problem is introduced by \textcite{van_den_berg_unreliable_2018}: 
+A related problem is introduced by \textcite{martins_dealing_2020}: 
 normally, it is assumed that agents in dynamic gossip are reliable and tell the truth about the secrets they hold.
 However, if agents lie, many known properties of dynamic gossip suddenly no longer hold.
 By introducing unreliable agents, a new goal is added to the gossip system:
 \textit{identify the unreliable agents}.
+An implementation of this (though slightly different from the version described in the paper mentioned before) can be found at \textcite{van_den_berg_unreliable_2020}.
 
 Another modification to secrets could be taken from \textcite{demers_epidemic_1988}, who propose a system in which all secrets have a `hotness'.
 This `hotness' indicates how often the secret has been spread.
@@ -65,13 +62,3 @@ According to \textcite{cisco_cisco_2020}, the number of mobile devices used to a
 This increase is also most visible among younger people,
 and since a key user group of this tool is intended to be students,
 having the tool be usable on a mobile device will probably increase the likelihood of it being used.
-
-\begin{itemize}
-    \item Meta-knowledge \parencite{herzig_how_2017}
-    \item A temporal aspect \parencite[also includes meta-knowledge]{slavkovik_temporal_2019}
-    \item A decay factor (`hotness') to secrets \parencite{demers_epidemic_1988}
-    \item Asynchronous calls \addcite
-    \item Unreliable agents \parencite{van_den_berg_unreliable_2018}
-    \item UI adaptation for mobile devices \parencite{cisco_cisco_2020}
-    \item Add successfulness functionality, such as generating successful call sequences if available
-\end{itemize}

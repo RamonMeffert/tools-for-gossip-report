@@ -194,17 +194,17 @@
   langid        = {english}
 }
 @article{kermack_contribution_1927,
-  title         = {A Contribution to the Mathematical Theory of Epidemics},
-  author        = {Kermack, W. O. and {McKendrick}, A. G.},
-  series        = {A},
-  volume        = 115,
-  number        = 772,
-  pages         = {700--721},
-  doi           = {10/fwx2qw},
-  url           = {http://www.jstor.org/stable/94815},
-  journaltitle  = {Proceedings of the Royal Society of London},
-  date          = 1927,
-  langid        = {english}
+	title = {A Contribution to the Mathematical Theory of Epidemics},
+	volume = {115},
+	url = {http://www.jstor.org/stable/94815},
+	doi = {10/fwx2qw},
+	series = {A},
+	pages = {700--721},
+	number = {772},
+	journaltitle = {Proceedings of the Royal Society of London},
+	author = {Kermack, W. O. and {McKendrick}, A. G.},
+	date = {1927},
+	langid = {english}
 }
 @inproceedings{korecki_balancing_2020,
   title         = {Balancing Selfishness and Efficiency in Mobile Ad-hoc Networks: An Agent-based Simulation:},
@@ -322,17 +322,21 @@
   date          = 2020,
   langid        = {english}
 }
+
 @article{van_ditmarsch_strengthening_2019,
-  title         = {Strengthening Gossip Protocols using Protocol-Dependent Knowledge},
-  author        = {van Ditmarsch, Hans and Gattinger, Malvin and Kuijer, Louwe B and Pardo, Pere},
-  volume        = 6,
-  number        = 1,
-  pages         = {157--203},
-  issn          = {1570-8683},
-  sortname      = {Ditmarsch},
-  journaltitle  = {Journal of Applied Logics},
-  date          = 2019,
-  langid        = {english}
+	title = {Strengthening Gossip Protocols using Protocol-Dependent Knowledge},
+	volume = {6},
+    sortname      = {Ditmarsch},
+	issn = {1570-8683},
+	abstract = {Distributed dynamic gossip is a generalization of the classic telephone problem in which agents communicate to share secrets, with the additional twist that also telephone numbers are exchanged to determine who can call whom. Recent work focused on the success conditions of simple protocols such as “Learn New Secrets” ({LNS}) wherein an agent a may only call another agent b if a does not know b’s secret. A protocol execution is successful if all agents get to know all secrets. On partial networks these protocols sometimes fail because they ignore information available to the agents that would allow for better coordination. We study how epistemic protocols for dynamic gossip can be strengthened, using epistemic logic as a simple protocol language with a new operator for protocol-dependent knowledge. We provide deﬁnitions of diﬀerent strengthenings and show that they perform better than {LNS}, but we also prove that there is no strengthening of {LNS} that always terminates successfully. Together, this gives us a better picture of when and how epistemic coordination can help in the dynamic gossip problem in particular and distributed systems in general.},
+	pages = {157--203},
+	number = {1},
+	journaltitle = {Journal of Applied Logics},
+	author = {van Ditmarsch, Hans and Gattinger, Malvin and Kuijer, Louwe B and Pardo, Pere},
+	date = {2019},
+	langid = {english},
+	keywords = {⛔ No {DOI} found},
+	file = {van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:/Users/ramon/Zotero/storage/R2TPFR6Z/van Ditmarsch et al. - Strengthening Gossip Protocols using Protocol-Depe.pdf:application/pdf}
 }
 @article{van_ditmarsch_dynamic_2018,
   title         = {Dynamic Gossip},
@@ -369,14 +373,4 @@
   booktitle     = {Distributed Cryptocurrencies and Consensus Ledgers ({DCCL} 2016)},
   sortname      = {Renesse},
   date          = {2016-07}
-}
-
-@software{van_den_berg_unreliable_2020,
-	title = {Unreliable Gossip},
-	url = {https://github.com/linevdberg/UnreliableGossip},
-	abstract = {The implementation of the framework introduced in the Master Thesis "Unreliable Gossip" by Line van den Berg.},
-	author = {van den Berg, Line},
-	urldate = {2021-01-24},
-    sortname= {Berg},
-	date = {2020}
 }

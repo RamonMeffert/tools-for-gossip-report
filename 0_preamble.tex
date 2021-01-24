@@ -3,21 +3,22 @@
 \usepackage{bachelorproject}
 \usepackage{gossip}
 \usepackage{amsthm}
+\usepackage{threeparttable}
 \usepackage{listings, lstautogobble}
 \usepackage[scale=0.85]{plex-mono}
 \usepackage[T1]{fontenc}
 \usepackage{caption}
-\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{subcaption}
+\usepackage[linesnumbered,ruled,algosection,noline]{algorithm2e}
 \usepackage[inline]{enumitem}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{csquotes}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{footnote}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
 % set stamp=false to disable 'draft' watermark
 \usepackage[stamp=true,scale=5,colorspec=0.95,angle=55]{draftwatermark}
-
-\makesavenoteenv{tabular}
-\makesavenoteenv{table}
 
 \lstset{%
     language=haskell, % close enough to elm to get some decent highlighting
@@ -26,7 +27,9 @@
     stepnumber=5,    
     firstnumber=1,
     numberfirstline=true,
-    numbers=left
+    numbers=left,
+    numbersep=4pt,
+    numberstyle=\footnotesize
 }
 
 \DeclareCaptionFormat{listing}{#1#2#3}
@@ -41,3 +44,6 @@
 \newcommand{\tmay}[1]{\textcolor{YellowOrange}{#1}}
 \newcommand{\tneg}[1]{\textcolor{Red}{#1}}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Some extra hyphenation info
+\hyphenation{tij-de-man}

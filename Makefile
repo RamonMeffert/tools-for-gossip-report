@@ -23,3 +23,6 @@ preview:
 
 clean:
 	latexmk -CA
+	
+sources:
+	bibtex-tidy --omit=file,abstract,rights,keywords,note --numeric --sort=sortname,author,year --duplicates --sort-fields --encode-urls literature.bib
