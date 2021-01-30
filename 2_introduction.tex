@@ -3,8 +3,8 @@
 \section{Introduction}
 \label{sec:introduction}
 
-\textit{Gossip protocols} are protocols that describe the way rumours---or, more generally, secrets---are shared in multi-agent environments.
-The goal of the protocols is to communicate all secrets to all agents.
+\textit{Gossip protocols} are protocols that describe the way rumours---or, more generally, pieces of information---are shared in multi-agent environments.
+The goal of the protocols is to communicate all pieces of information to all agents.
 A lot of research has been done in this field, 
 starting with research on the spread of infectious diseases \parencite{kermack_contribution_1927}.
 
@@ -18,21 +18,21 @@ an unpublished paper by R.T.~Bumby and J.~Spencer might be earlier.
 \textcite{harary_communication_1974} cite this paper as being referenced in a work from 1966.
 
 In short, agents are represented as nodes in a graph, with the edges representing a relation.
-This relation can be either the number relation \(N\), representing that one agent has the ``phone number'' of another agent,
+This relation can be the number relation \(N\), representing that one agent has the ``phone number'' of another agent,
 and the secret relation \(S\), representing that one agent knows the secret of another agent.
-Many authors \parencite[e.g.][]{tijdeman_telephone_1971, hajnal_cure_1972, baker_gossips_1972, lebensold_efficient_1973} have proven that this can be done in no fewer than \(2n-4\) calls,
+Many authors \parencite[e.g.,][]{tijdeman_telephone_1971, hajnal_cure_1972, baker_gossips_1972, lebensold_efficient_1973} have proven that this can be done in no fewer than \(2n-4\) calls,
 where \(n\) is the number of agents,
 given that all agents know the numbers of all other agents---that is, the number relation \(N\) is \textit{complete}.
 
 The problem as formulated above requires the oversight of a central authority in order to know whether all agents know all secrets.
 However, there are many applications where this is not feasible or desirable as this becomes very computationally expensive as the number of agents increases.
-Another problem is that it often cannot be guaranteed that all agents can contact all other agents.
+Another problem is that in real-world applications, it is often the case that agents do not know the phone numbers of all other agents. Therefore, it is useful that agents not only spread their secrets, but also the phone numbers of other agents.
 This has led to the sub-fields of \textit{distributed gossip}, addressing the first issue, and \textit{dynamic gossip}, addressing the second.
-The combination of these fields, where there is no overseer and not all agents can contact all other agents, is called \textit{distributed dynamic gossip}.
+The combination of these fields, where there is no overseer and the number relation can change during runtime, is called \textit{distributed dynamic gossip}.
 
 This paper will describe a tool to make it easier to explore distributed dynamic gossip.
 It is able to visualise the connections between agents,
-allows exploring the execution tree of different protocols and validate call sequences given a graph and/or a protocol.
+allows exploring the execution tree of different protocols and validate call sequences given a graph and a protocol.
 
 \subsection{Earlier work}
 
@@ -43,30 +43,28 @@ One of the earlier applications we could find was used for database consistency 
 More recent applications in system consistency can be found in the applications in Amazon's DynamoDB software \parencite{decandia_dynamo_2007} and the SWIM protocol \parencite{das_swim_2002}.
 However, more applications than database consistency exist:
 Notable examples include its use in genome research \parencite{liben-nowell_gossip_2002},
-alternatives to the proof-of-work in blockchain \parencite{renesse_blockchain_2016,baird_swirlds_2016} and ad-hoc network routing \parencite{haas_gossip-based_2006,korecki_balancing_2020}.
+alternatives to the proof-of-work in blockchain \parencite{renesse_blockchain_2016,baird_swirlds_2016} and ad-hoc network routing \parencite{haas_gossip-based_2006}.
 
 \subsubsection{Visualisation tools}
 
 A researcher or student interested in dynamic gossip will probably start looking for some way to gain an intuitive understanding of the field.
 At the time of writing, a couple of applications that demonstrate properties of dynamic gossip are available.
 However, most of these require either an established understanding of the field and/or proficiency using command-line tools.
-In this section, these tools will be discussed in order to highlight some of the aspects the tool proposed in this paper attempts to improve.
 
-The first two tools are tools by Malvin Gattinger (the supervisor of this Bachelor's project):
-one works in the browser \parencite{gattinger_webgossip_2016}, the other is a command-line tool \parencite{gattinger_m4lvingomoche_2020}. 
+The first two tools are by Malvin Gattinger (the supervisor of this Bachelor's project):
+one works in the browser \parencite{gattinger_webgossip_2016}, the other is a Haskell library  \parencite{gattinger_m4lvingomoche_2020}. 
 The first tool, \texttt{WebGossip}, is able to visualise gossip graphs based on user input.
 While the input format for that tool is different from the one used in this tool
 (for an explanation of the format for our tool, see Section~\ref{sec:gossip-graph-visualisation}),
 it is similar in that it also takes text input and displays the gossip graph graphically.
 The tool also generates code for use in \LaTeX\ papers.
 
-The second tool has more features but, being a command-line tool, is not as easy to use.
+The second tool has more features but, being a Haskell library, is not as easy to use.
 The main differences between these two tools and our tool can be seen in Table~\ref{tab:tool-comparison}
-
 
 \begin{table*}
     \begin{threeparttable}
-        \caption{Comparison between our tool and other tools. The tools by \textcite{maffre_faustinemaffregossipproblem-pddl-generator_2020} and \textcite{moelker_rrmoelkergossip-visualization_2016} have not been included in this comparison since they are too different for useful comparison.}
+        \caption{Comparison between tools. The tools by \textcite{maffre_faustinemaffregossipproblem-pddl-generator_2020} and \textcite{moelker_rrmoelkergossip-visualization_2016} have not been included in this comparison since they are too different for direct comparison.}
         \label{tab:tool-comparison}
         \begin{tabular}{@{}p{0.3\linewidth}*{3}{M{0.2\linewidth}}@{}}
             \toprule
@@ -116,7 +114,7 @@ The main differences between these two tools and our tool can be seen in Table~\
                 & \tpos{Yes}
                 \\
             Protocols
-                & LNS, CO\tnote{1}, COwLoG, PIG, ANY, NO
+                & LNS, CO\tnote{1}, COwLoG, PIG, ANY
                 & N/A
                 & LNS, CO, wCO, SPI, ANY, TOK, \emph{custom}
                 \\
@@ -134,7 +132,7 @@ The second is a visualisation tool, but due to the lack of a description on the 
 
 In conclusion, very few tools are available for exploring dynamic gossip.
 The tools that \emph{are} available are either lacking in features or provide an uninviting user interface.
-Our tool 
+Our tool aims to improve on both of these aspects.
 
 \subsection{Notation}
 \label{sec:notation}
@@ -153,9 +151,7 @@ The notation used is explained below.
     
 \begin{subdefinition}[Binary relation]
     When agent \(x\) has relation \(P\) to agent \(y\), this is denoted as \(Pxy\). 
-    A binary relation is notated as a tuple \((x,y)\) and represents a directed relation from \(x\) to \(y\). 
-    
-    Formally: \(Pxy := \{ (x, y) \mid (x,y) \in P \}\)
+    A binary relation is notated as a tuple \((x,y)\) and represents a directed relation from \(x\) to \(y\).
     \label{def:rel-bin}
 \end{subdefinition}
 
@@ -214,7 +210,7 @@ The notation used is explained below.
 
 \begin{definition}[Properties of gossip graphs]
     \begin{subdefinition}[Weakly connected]
-        A graph \(G\) if for all \(x, y \ in A\) there exists a number relation from \(x\) to \(y\) or from \(y\) to x, that is, the symmetric closure of \(N\) contains \((x, y)\).
+        A graph \(G\) is weakly connected if for all \(x, y \in A\) there exists a number relation from \(x\) to \(y\) or from \(y\) to x, that is, the symmetric closure of \(N\) contains \((x, y)\).
         
         Formally: 
             \[
@@ -264,22 +260,16 @@ The notation used is explained below.
 
     \begin{subdefinition}[Effect of a call on a relation]
         \label{def:call-effect-relation}
-        The state of relation \(P\) after call \(xy\) is denoted \(P^{xy}\).
-        % TODO: Give an example
-        Formally: \( P^{xy} := P \cup (\{(x,y),(y,x)\} \circ P) \)
+        The state of relation \(P\) after call \(xy\) is denoted \(P^{xy}\) and defined by: \( P^{xy} := P \cup (\{(x,y),(y,x)\} \circ P) \)
     \end{subdefinition}
 
     \begin{subdefinition}[Effect of a call on a gossip graph]
         \label{def:call-effect-graph}
-        The state of gossip graph \(G\) after call \(xy\) is denoted \(G^{xy}\).
-
-        Formally: \( G^{xy} := (A,N^{xy},S^{xy}) \)
+        The state of gossip graph \(G\) after call \(xy\) is denoted \(G^{xy}\) and is defined by: \( G^{xy} := (A,N^{xy},S^{xy}) \)
     \end{subdefinition}
 
     \begin{subdefinition}[Effect of a call sequence on a gossip graph]
-        The state of gossip graph \(G\) after call sequence \(\sigma\) is denoted \(G^\sigma\).
-
-        Formally: 
+        The state of gossip graph \(G\) after call sequence \(\sigma\) is denoted \(G^\sigma\) and is defined by:
         \[ 
             G^\sigma := 
             \begin{cases}
@@ -291,7 +281,7 @@ The notation used is explained below.
 
     \begin{subdefinition}[Call sequence possibility]
         \label{def:call-sequence-possibility}
-        A call sequence \(\sigma\) is \emph{possible} on a gossip graph \(G\) iff for all calls \(c_i \in \sigma\) such that \(\sigma = c_i\mathbin{;}\tau\), the call is possible, i.e. \(Nc_i\)
+        A call sequence \(\sigma \conc xy\) is \emph{possible} on a gossip graph \(G\) iff \(xy\) is possible on \(G^\sigma\) (i.e., \(N^\sigma xy\)) and \(\sigma\) is possible on \(G\).
     \end{subdefinition}
 
     \begin{subdefinition}[Call permissibility]

@@ -4,6 +4,14 @@
 
 \subsection{Survey}
 
+Respondents evaluated the tool positively on both the design and usefullness of error messages.
+Respondents did not take significantly little or much time to understand the user interface.
+Though this result can be interpreted positively, it also leaves room for improvement.
+Improvements to speed of understanding could be improved by, for example, adding an interactive tutorial of the tool the first time a user loads the web page.
+
+Furthermore, while the tool was considered useful in a study setting, only about half of the respondents considered the tool to be useful in a research setting.
+Extending the tool with more types of gossip (as will be discussed in section~\ref{sec:extensions}), as well as finishing the custom protocol creation could improve the usability in a research setting.
+
 While the survey yielded useful results, its exploratory nature along with the low number of respondents mean that its results are difficult to quantitatively analyse.
 Therefore, it could be interesting to perform a larger user study.
 This could include a larger survey focused more on objective analysis of the tool's ergonomics.
@@ -22,8 +30,9 @@ At the time of publication of this report, several planned features -- some part
 Besides these features, a more up-to-date list of smaller planned features and bug fixes can be found at \url{https://github.com/RamonMeffert/tools-for-gossip/issues}.
 
 \subsubsection{Possible extensions of the tool}
+\label{sec:extensions}
 
-The current version of the tool allows user to model dynamic gossip protocols as defined in \textcite{van_ditmarsch_dynamic_2018}.
+The current version of the tool allows users to model dynamic gossip protocols as defined in \textcite{van_ditmarsch_dynamic_2018}.
 However, there is more to gossip than what is described in that paper.
 In this section, other papers on (dynamic) gossip are presented which introduce additional concepts.
 To make the tool more broadly usable, it could be interesting to add some or all of these aspects to the tool.
@@ -37,7 +46,7 @@ An example of this can be found in the \texttt{GoMoChe} tool \parencite{gattinge
 Another idea is to include a temporal aspect, such as in \textcite{slavkovik_temporal_2019}
 (note that this paper also includes epistemic information).
 This means that agents cannot always be reached.
-The paper gives as examples for this problem communication between geostationary satellites that might not always be able to `see' each other,
+The paper gives as examples for this problem communication between satellites on different orbits that might not always be able to `see' each other,
 or a phone with a battery that sometimes does not have enough charge to communicate.
 This might be interesting, because this means that instead of calls being either always possible or always impossible, 
 they might \textit{sometimes} be possible or impossible as well.

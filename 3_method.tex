@@ -45,9 +45,9 @@ The tool is available for use at \url{https://ramonmeffert.github.io/tools-for-g
 
 \subsubsection{Gossip graph visualisation}\label{sec:gossip-graph-visualisation}
 
-\begin{figure*}[htb!]
+\begin{figure*}[btp]
     \includegraphics[width=\linewidth]{img/gossip-graph.png}
-    \caption{A visualised gossip graph. Users enter the text representation of the gossip graph on the left. The icons below this input field represent whether the number relation (N) and secret relation (S) are weakly (feather icon, Definition~\ref{def:weakly-connected}) and/or  strongly (dumbbell icon, Definition~\ref{def:strongly-connected}) connected. The sun icon represents whether the graph is a sun graph (Definition~\ref{def:sun-graph})}
+    \caption{A visualised gossip graph. Users enter the text representation of the gossip graph on the left. The icons below this input field represent whether the number relation (N) and secret relation (S) are weakly (feather icon, Definition~\ref{def:weakly-connected}) and/or  strongly (dumbbell icon, Definition~\ref{def:strongly-connected}) connected. The sun icon represents whether the graph is a sun graph (Definition~\ref{def:sun-graph}).}
     \label{fig:gossip-graph}
 \end{figure*}
 
@@ -97,22 +97,18 @@ This procedure is described in more detail in Algorithm~\ref{alg:find-agents}.
     }
     \BlankLine
     \Return{\Names}\;
-    \caption{Finding agent names}\label{alg:find-agents}
+    \caption{Finding agent names.}\label{alg:find-agents}
 \end{algorithm*}
 
 Once the agent names have been found, it is possible to parse the relations from the input string.
 Algorithm~\ref{alg:find-agents} assumes the first agent name it finds represents the first agent. 
 Thus, the first segment represents the relations of that agent.
 
-% more info
-
 This interpretation of the format is likely a bit more permissive than the original format.
 For example, in the original format, the names of agents always follow alphabetic order -- agent 1 is A, agent 2 is B, et cetera.
 Furthermore, the text segments in the original format are always ordered alphabetically.
 These requirements are not present in the implementation, so an input like \texttt{Xyz Yzx Zxy} is allowed.
-However, the tool does generate a so-called ``canonical input'' which does follow the original rules.
-
-%TODO: Add paragraph about how graph is updated whenever the input changes and that helpful error messages are presented when the input is not valid.
+However, the tool does generate a ``canonical string representation'' which does follow the original rules.
 
 \subsubsection{Executing calls}
 \label{sec:protocol-execution}
@@ -163,7 +159,7 @@ These constituents are then interspersed with either logical conjunction (\(\lan
 \begin{figure}[htb!]
     \centering
     \includegraphics[width=\linewidth]{img/protocol-builder.png}
-    \caption{The proposed interface for creating custom gossip protocols}
+    \caption{The proposed interface for creating custom gossip protocols.}
     \label{fig:protocol-creator}
 \end{figure}
 
@@ -192,7 +188,7 @@ The application will then parse this into an Elm function which can be used to d
                 [.{\( \neg yx \in \sigma_x \)} ]
             ]
         \end{tikzpicture}
-        \caption{The \emph{Call me Once} protocol as visible in Figure~\ref{fig:protocol-creator}}
+        \caption{The \emph{Call me Once} protocol as visible in Figure~\ref{fig:protocol-creator}.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{.5\linewidth}
@@ -209,9 +205,9 @@ The application will then parse this into an Elm function which can be used to d
                 ]
             ]
         \end{tikzpicture}
-        \caption{A non-existant protocol (\( xy \in \sigma_x \land ( S^\sigma xy \lor \sigma_x = \epsilon ) \))}
+        \caption{A non-existant protocol (\( xy \in \sigma_x \land ( S^\sigma xy \lor \sigma_x = \epsilon ) \)).}
     \end{subfigure}
-    \caption{The binary tree representation of protocol conditions}
+    \caption{The binary tree representation of protocol conditions.}
     \label{fig:logic-tree}
 \end{figure}
 
@@ -236,25 +232,25 @@ if calls have already been executed after the current state, a new branch will b
 The second is by using the `forward' button (visible in Figure~\ref{fig:execution-tree}, the leftmost button in the rop right corner).
 Pressing this button will present the user with a dialog in which they can determine the maximal branching depth of the execution tree, allowing a depth of at most 5 levels.
 This maximum has been implemented in order to make sure the program can calculate the execution tree, as the number of nodes to be calculated grows exponentially.
-Circumstantial evidence suggests the tool can handle a depth of 5 under the \texttt{ANY} protocol given an initial graph \(G = (A = \{a, b, c\}, N = I_A, S = I_A)\) (resulting in \(6^5 = 7,776\) nodes) without much difficulty.
+Circumstantial evidence suggests the tool can handle a depth of 5 under the \texttt{ANY} protocol given an initial graph \(G = (A = \{a, b, c\}, N = A^2, S = I_A)\) (resulting in \(6^5 = 7,776\) nodes) without much difficulty.
 
 \subsubsection{User interaction and support}
 
 \paragraph{Error messages}
 
-In order to make the tool more user-friendly, consiberable time was spent on providing the user with useful error messages when they occur.
+In order to make the tool more user-friendly, it provides error messages explaining the problem when an error occurs.
 An example of this can be seen in Figure~\ref{fig:errors}.
 
 \begin{figure}[htb!]
     \includegraphics[width=\linewidth]{img/errors.png}
-    \caption{An error that is shown when a call sequence containing a non-existing agent is entered}
+    \caption{An error that is shown when a call sequence containing a non-existing agent is entered.}
     \label{fig:errors}
 \end{figure}
 
 \paragraph{Documentation}
 
 To make the documentation as accessible as possible, the user documentation was integrated in the user interface.
-When users click the (?) button that is present on every section, they are shown a popup window containing an explanation of that section's functionality.
+When users click the \texttt{[?]} button that is present on every section, they are shown a popup window containing an explanation of that section's functionality.
 An example of this can be seen in Figure~\ref{fig:documentation}
 
 \begin{figure}[htb!]
@@ -268,11 +264,11 @@ An example of this can be seen in Figure~\ref{fig:documentation}
 To evaluate the usability and applicability of the tool,
 a short exploratory survey was sent out to a number of researchers active in the field of (dynamic) gossip as well as students of the master course ``Design of Multi-Agent Systems'' at the University of Groningen.
 The purpose of this survey was to evaluate the ease of use and applicability of the tool,
-identification of most important features and gathering suggestions for improvement and/or extensions.
+to identify most important features and to gather suggestions for improvement and/or extensions.
 The questions used can be found in Appendix~\ref{ap:survey}.
 
-The response types for this survey are semantic differential scales, Yes/No/Maybe questions, multiple-choice lists and open-input questions. The semantic differential scales will be analysed using a Wilcoxon Ranked-Sign test. 
+The response types for this survey are semantic differential scales, Yes/No/Maybe questions, multiple-choice lists and open-input questions. The semantic differential scales will be analysed using a Wilcoxon Rank Sum test (sometimes also known as a Mann-Whitney U-test). 
 The responses will be treated as an interval scale centered around the neutral response, which is at 3.
 For the Yes/No/Maybe questions, a cross table will be used.
 Lastly, the open-answer questions will be paraphrased in the analysis; 
-they are intended to gather possible improvements and do not contribute to the analysis of the tool.
+they are intended to gather possible improvements and do not contribute to the statistical analysis of the tool.

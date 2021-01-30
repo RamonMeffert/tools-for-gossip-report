@@ -15,10 +15,11 @@
 \usepackage{array}
 \usepackage{csquotes}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{dblfloatfix}
 \usepackage{tikz}
 \usepackage{tikz-qtree}
 % set stamp=false to disable 'draft' watermark
-\usepackage[stamp=true,scale=5,colorspec=0.95,angle=55]{draftwatermark}
+\usepackage[stamp=false,scale=5,colorspec=0.95,angle=55]{draftwatermark}
 
 \lstset{%
     language=haskell, % close enough to elm to get some decent highlighting
@@ -47,3 +48,6 @@
 
 % Some extra hyphenation info
 \hyphenation{tij-de-man}
+
+% monospace font for urls
+\urlstyle{tt}
