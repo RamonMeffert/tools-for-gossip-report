@@ -29,9 +29,9 @@
   title         = {The swirlds hashgraph consensus algorithm: Fair, fast, byzantine fault tolerance},
   author        = {Baird, Leemon},
   volume        = 1,
-  url           = {https://www.swirlds.com/wp-content/uploads/2016/06/2016-05-31-Swirlds-Consensus-Algorithm-TR-2016-01.pdf},
   journaltitle  = {Swirlds, Inc. Technical Report {SWIRLDS}-{TR}-2016},
-  date          = 2016
+  date          = 2016,
+  url           = {https://www.swirlds.com/wp-content/uploads/2016/06/2016-05-31-Swirlds-Consensus-Algorithm-TR-2016-01.pdf}
 }
 @article{baker_gossips_1972,
   title         = {Gossips and telephones},
@@ -207,21 +207,6 @@
   date          = 1927,
   langid        = {english}
 }
-@article{kermarrec_gossiping_2007,
-  title         = {Gossiping in distributed systems},
-  author        = {Kermarrec, Anne-Marie and van Steen, Maarten},
-  volume        = 41,
-  number        = 5,
-  pages         = {2--7},
-  doi           = {10/d3zffh},
-  issn          = {0163-5980},
-  url           = {https://dl.acm.org/doi/10.1145/1317379.1317381},
-  urldate       = {2021-02-12},
-  journaltitle  = {{ACM} {SIGOPS} Operating Systems Review},
-  shortjournal  = {{SIGOPS} Oper. Syst. Rev.},
-  date          = {2007-10},
-  langid        = {english}
-}
 @inproceedings{korecki_balancing_2020,
   title         = {Balancing Selfishness and Efficiency in Mobile Ad-hoc Networks: An Agent-based Simulation:},
   shorttitle    = {Balancing Selfishness and Efficiency in Mobile Ad-hoc Networks},
@@ -296,8 +281,8 @@
   title         = {A Blockchain Based on Gossip? – A Position Paper},
   author        = {Renesse, Robbert van},
   booktitle     = {Distributed Cryptocurrencies and Consensus Ledgers ({DCCL} 2016)},
-  url           = {https://www.zurich.ibm.com/dccl/papers/renesse\%5Fdccl.pdf},
-  date          = {2016-07}
+  date          = {2016-07},
+  url           = {https://www.zurich.ibm.com/dccl/papers/renesse_dccl.pdf}
 }
 @inproceedings{tarr_secure_2019,
   title         = {Secure Scuttlebutt: An Identity-Centric Protocol for Subjective and Decentralized Applications},
@@ -322,14 +307,6 @@
   pages         = {188--192},
   journaltitle  = {Nieuw Archief voor Wiskunde},
   date          = 1971
-}
-@software{van_den_berg_unreliable_2020,
-  title         = {Unreliable Gossip},
-  author        = {van den Berg, Line},
-  url           = {https://github.com/linevdberg/UnreliableGossip},
-  urldate       = {2021-01-24},
-  sortname      = {Berg},
-  date          = 2020
 }
 @incollection{martins_dealing_2020,
   title         = {Dealing with Unreliable Agents in Dynamic Gossip},
@@ -395,4 +372,32 @@
   booktitle     = {Distributed Cryptocurrencies and Consensus Ledgers ({DCCL} 2016)},
   sortname      = {Renesse},
   date          = {2016-07}
+}
+
+@software{van_den_berg_unreliable_2020,
+	title = {Unreliable Gossip},
+	url = {https://github.com/linevdberg/UnreliableGossip},
+	abstract = {The implementation of the framework introduced in the Master Thesis "Unreliable Gossip" by Line van den Berg.},
+	author = {van den Berg, Line},
+	urldate = {2021-01-24},
+    sortname= {Berg},
+	date = {2020}
+}
+
+@article{kermarrec_gossiping_2007,
+	title = {Gossiping in distributed systems},
+	volume = {41},
+	issn = {0163-5980},
+	url = {https://dl.acm.org/doi/10.1145/1317379.1317381},
+	doi = {10/d3zffh},
+	abstract = {Gossip-based algorithms were ﬁrst introduced for reliably disseminating data in large-scale distributed systems. However, their simplicity, robustness, and ﬂexibility make them attractive for more than just pure data dissemination alone. In particular, gossiping has been applied to data aggregation, overlay maintenance, and resource allocation. Gossiping applications more or less ﬁt the same framework, with often subtle differences in algorithmic details determining divergent emergent behavior. This divergence is often difﬁcult to understand, as formal models have yet to be developed that can capture the full design space of gossiping solutions. In this paper, we present a brief introduction to the ﬁeld of gossiping in distributed systems, by providing a simple framework and using that framework to describe solutions for various application domains.},
+	pages = {2--7},
+	number = {5},
+	journaltitle = {{ACM} {SIGOPS} Operating Systems Review},
+	shortjournal = {{SIGOPS} Oper. Syst. Rev.},
+	author = {Kermarrec, Anne-Marie and van Steen, Maarten},
+	urldate = {2021-02-12},
+	date = {2007-10},
+	langid = {english},
+	file = {Kermarrec and van Steen - 2007 - Gossiping in distributed systems.pdf:/Users/ramon/Zotero/storage/8MAPI5N8/Kermarrec and van Steen - 2007 - Gossiping in distributed systems.pdf:application/pdf}
 }

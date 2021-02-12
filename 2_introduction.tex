@@ -20,13 +20,14 @@ an unpublished paper by R.T.~Bumby and J.~Spencer might be earlier.
 In short, agents are represented as nodes in a graph, with the edges representing a relation.
 This relation can be the number relation \(N\), representing that one agent has the ``phone number'' of another agent,
 and the secret relation \(S\), representing that one agent knows the secret of another agent.
-Many authors \parencite[e.g.,][]{tijdeman_telephone_1971, hajnal_cure_1972, baker_gossips_1972, lebensold_efficient_1973} have proven that this can be done in no fewer than \(2n-4\) calls,
+Many authors \parencite[e.g.,][]{tijdeman_telephone_1971, hajnal_cure_1972, baker_gossips_1972, lebensold_efficient_1973} have proven that it takes no fewer than \(2n-4\) calls before all agents know all secrets,
 where \(n\) is the number of agents,
 given that all agents know the numbers of all other agents---that is, the number relation \(N\) is \textit{complete}.
 
 The problem as formulated above requires the oversight of a central authority in order to know whether all agents know all secrets.
-However, there are many applications where this is not feasible or desirable as this becomes very computationally expensive as the number of agents increases.
-Another problem is that in real-world applications, it is often the case that agents do not know the phone numbers of all other agents. Therefore, it is useful that agents not only spread their secrets, but also the phone numbers of other agents.
+However, there are many applications where this is not feasible or desirable as this becomes very computationally expensive as the number of agents increases \parencite{kermarrec_gossiping_2007}.
+Another problem is that in real-world applications, often the agents do not know the phone numbers of all other agents. 
+Therefore, it is useful that agents not only spread their secrets, but also the phone numbers of other agents.
 This has led to the sub-fields of \textit{distributed gossip}, addressing the first issue, and \textit{dynamic gossip}, addressing the second.
 The combination of these fields, where there is no overseer and the number relation can change during runtime, is called \textit{distributed dynamic gossip}.
 
@@ -38,7 +39,7 @@ allows exploring the execution tree of different protocols and validate call seq
 
 \subsubsection{Applications of gossip}
 
-Gossip, since its first formal description, found many different applications.
+Gossip has, since its first formal description, found many different applications.
 One of the earlier applications we could find was used for database consistency in the Xerox Corporate Internet \parencite{demers_epidemic_1988}.
 More recent applications in system consistency can be found in the applications in Amazon's DynamoDB software \parencite{decandia_dynamo_2007} and the SWIM protocol \parencite{das_swim_2002}.
 However, more applications than database consistency exist:
@@ -51,15 +52,14 @@ A researcher or student interested in dynamic gossip will probably start looking
 At the time of writing, a couple of applications that demonstrate properties of dynamic gossip are available.
 However, most of these require either an established understanding of the field and/or proficiency using command-line tools.
 
-The first two tools are by Malvin Gattinger (the supervisor of this Bachelor's project):
-one works in the browser \parencite{gattinger_webgossip_2016}, the other is a Haskell library  \parencite{gattinger_m4lvingomoche_2020}. 
+The first two tools are by \textcite{gattinger_webgossip_2016, gattinger_m4lvingomoche_2020}: one works in the browser \parencite{gattinger_webgossip_2016}, the other is a Haskell library \parencite{gattinger_m4lvingomoche_2020}. 
 The first tool, \texttt{WebGossip}, is able to visualise gossip graphs based on user input.
 While the input format for that tool is different from the one used in this tool
 (for an explanation of the format for our tool, see Section~\ref{sec:gossip-graph-visualisation}),
 it is similar in that it also takes text input and displays the gossip graph graphically.
-The tool also generates code for use in \LaTeX\ papers.
+The tool also generates code for use in \LaTeX\ papers
 
-The second tool has more features but, being a Haskell library, is not as easy to use.
+The second tool, \texttt{GoMoChe}, has more features but, being a Haskell library, is not as easy to use.
 The main differences between these two tools and our tool can be seen in Table~\ref{tab:tool-comparison}
 
 \begin{table*}
@@ -99,7 +99,7 @@ The main differences between these two tools and our tool can be seen in Table~\
                 & \tpos{Yes}
                 \\
             Show allowed calls
-                & \tpos{No}
+                & \tneg{No}
                 & \tneg{No}
                 & \tpos{Yes}
                 \\
@@ -114,14 +114,15 @@ The main differences between these two tools and our tool can be seen in Table~\
                 & \tpos{Yes}
                 \\
             Protocols
-                & LNS, CO\tnote{1}, COwLoG, PIG, ANY
+                & LNS, CMO\tnote{1}, CMOwLoG, PIG, ANY
                 & N/A
-                & LNS, CO, wCO, SPI, ANY, TOK, \emph{custom}
+                & LNS, CO, wCO, SPI, ANY, TOK, \emph{custom}\tnote{2}
                 \\
             \bottomrule
         \end{tabular}
         \begin{tablenotes}
-            \item[1] Call-me-once; sometimes also called CMO.
+            \item[1] Call-me-once; called CO in this paper.
+            \item[2] Custom protocols were planned, but not finished in the implementation for this paper.
         \end{tablenotes}
     \end{threeparttable}
 \end{table*}
@@ -150,8 +151,7 @@ The notation used is explained below.
 \begin{definition}[Relations on gossip graphs]
     
 \begin{subdefinition}[Binary relation]
-    When agent \(x\) has relation \(P\) to agent \(y\), this is denoted as \(Pxy\). 
-    A binary relation is notated as a tuple \((x,y)\) and represents a directed relation from \(x\) to \(y\).
+    When agent \(x\) has relation \(P\) to agent \(y\), this is denoted as \(Pxy\), which is a shorthand notation of \( (x,y) \in P \).
     \label{def:rel-bin}
 \end{subdefinition}
 
@@ -210,21 +210,21 @@ The notation used is explained below.
 
 \begin{definition}[Properties of gossip graphs]
     \begin{subdefinition}[Weakly connected]
-        A graph \(G\) is weakly connected if for all \(x, y \in A\) there exists a number relation from \(x\) to \(y\) or from \(y\) to x, that is, the symmetric closure of \(N\) contains \((x, y)\).
+        A graph \(G\) is weakly connected if for all \(x, y \in A\) there exists a path in \( N \) from \(x\) to \(y\) or from \(y\) to \( x \), that is, the symmetric transitive closure of \(N\) is complete.
         
         Formally: 
             \[
-                A^2 = \{ (x, y) \in (N \cup N^{-1}) \mid x, y \in A \}
+                \forall x, y \in A : (x, y) \in (N \cup N^{-1})^*
             \]
         \label{def:weakly-connected}
     \end{subdefinition}
     
     \begin{subdefinition}[Strongly connected]
-        A graph \(G\) is strongly connected if for all \(x, y \ in A\) there exists a number \(N\) relation from \(x\) to \(y\).
+        A graph \(G\) is strongly connected if for all \(x, y \in A\) there exists a path in \( N \) from \(x\) to \(y\).
         
         Formally:
             \[
-                A^2 = \{ (x, y) \in N \mid x, y \in A \}
+                \forall x, y \in A : (x, y) \in N^*
             \]
         \label{def:strongly-connected}
     \end{subdefinition}

@@ -151,7 +151,7 @@ These are \emph{Any} (\texttt{ANY}), \emph{Call Once} (\texttt{CO}), \emph{Weak 
 \label{sec:custom-protocols}
 
 To allow more flexibility in using protocols, 
-our tool allows the user to create their own gossip protocols.
+our tool allows the user to create their own gossip protocols.\footnote{Note: at the time of publication, this part of the tool was not finished.}
 This is done through a drag-and-drop interface,
 in which users can arrange boolean constituents or groups of boolean constituents.
 These constituents are then interspersed with either logical conjunction (\(\land\)) or logical disjunction (\(\lor\)) (see also Figure~\ref{fig:protocol-creator}).
@@ -184,8 +184,8 @@ The application will then parse this into an Elm function which can be used to d
             \tikzset{edge from parent/.style={draw,edge from parent path={(\tikzparentnode.south)-- +(0,-8pt)-| (\tikzchildnode)}}}
             \Tree
             [.{\( \land \)} 
-                [.{\( \neg xy \in \sigma_x \)} ]
-                [.{\( \neg yx \in \sigma_x \)} ]
+                [.{\( xy \notin \sigma_x \)} ]
+                [.{\( yx \notin \sigma_x \)} ]
             ]
         \end{tikzpicture}
         \caption{The \emph{Call me Once} protocol as visible in Figure~\ref{fig:protocol-creator}.}
@@ -205,7 +205,7 @@ The application will then parse this into an Elm function which can be used to d
                 ]
             ]
         \end{tikzpicture}
-        \caption{A non-existant protocol (\( xy \in \sigma_x \land ( S^\sigma xy \lor \sigma_x = \epsilon ) \)).}
+        \caption{A custom protocol (\( xy \in \sigma_x \land ( S^\sigma xy \lor \sigma_x = \epsilon ) \)).}
     \end{subfigure}
     \caption{The binary tree representation of protocol conditions.}
     \label{fig:logic-tree}
@@ -229,7 +229,7 @@ The first is by executing calls or call sequences.
 This appends the call (or call sequence) to the current state of the gossip graph.
 This allows for branching in the execution tree:
 if calls have already been executed after the current state, a new branch will be added.
-The second is by using the `forward' button (visible in Figure~\ref{fig:execution-tree}, the leftmost button in the rop right corner).
+The second is by using the `forward' button (visible in Figure~\ref{fig:execution-tree}, the leftmost button in the top right corner).
 Pressing this button will present the user with a dialog in which they can determine the maximal branching depth of the execution tree, allowing a depth of at most 5 levels.
 This maximum has been implemented in order to make sure the program can calculate the execution tree, as the number of nodes to be calculated grows exponentially.
 Circumstantial evidence suggests the tool can handle a depth of 5 under the \texttt{ANY} protocol given an initial graph \(G = (A = \{a, b, c\}, N = A^2, S = I_A)\) (resulting in \(6^5 = 7,776\) nodes) without much difficulty.
